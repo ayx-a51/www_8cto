@@ -1,0 +1,142 @@
+/* Shared styles for the 8ctoMath legal pages.
+   Colour and type are taken from the app's own design system
+   (lib/ui/theme.dart, `abstract final class Sea`) so the pages read as part
+   of 8ctoMath. Kept in one file, linked from both pages, so they cannot
+   drift apart.
+
+   Fredoka is self-hosted rather than loaded from Google's CDN: these are the
+   privacy pages, and pulling a font from a third party to render them would
+   hand that third party the reader's IP address. It is the very file the app
+   bundles (assets/fonts/Fredoka.ttf), converted to woff2. */
+
+@font-face{
+  font-family:'Fredoka';
+  src:url('fonts/Fredoka.woff2') format('woff2-variations');
+  font-weight:300 700;           /* the wght axis the app varies */
+  font-style:normal; font-display:swap;
+}
+
+:root{
+  /* Sea, verbatim */
+  --abyss:#062A45;
+  --deep:#0B3C5D;
+  --sea:#1673A6;
+  --lagoon:#2EC4D6;
+  --shallow:#8BE3EE;
+  --foam:#E9FBFF;
+  --sand:#FFE9B8;
+  --sun:#FFC93C;
+  --sun-deep:#E59A12;
+  --kelp:#3CCB7F;
+  --kelp-deep:#1E9A57;
+  --coral:#FF6F61;
+  --ink:#10263A;
+  --ink-soft:#4A6275;
+  --purple:#8E6CEF;
+  /* Rounded shapes, to sit with a rounded face */
+  --r-chip:10px;
+  --r-tile:20px;
+  --r-sheet:28px;
+  --line:#CFE6EF;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+body{
+  background:var(--foam);
+  color:var(--ink);
+  font-family:'Fredoka',system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-weight:400;
+  font-size:16px;
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+
+img{display:block;max-width:100%;height:auto}
+a{color:var(--sea)}
+a:focus-visible{outline:3px solid var(--sea);outline-offset:3px;border-radius:var(--r-chip)}
+
+.wrap{max-width:820px;margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
+
+/* ---------- header ---------- */
+.top{display:flex;align-items:center;gap:14px;padding-block:clamp(20px,3vw,32px)}
+.top .home{display:flex;align-items:center;gap:14px;text-decoration:none;color:inherit}
+.top img{width:48px;height:48px;border-radius:14px}
+.top .name{font-weight:700;font-size:1.3rem;letter-spacing:.01em}
+.top .toplink{
+  margin-left:auto;color:var(--deep);text-decoration:none;font-weight:600;
+  font-size:.875rem;
+  border:2px solid var(--line);background:#fff;
+  border-radius:999px;padding:.55em 1.25em;white-space:nowrap;
+}
+.top .toplink:hover{border-color:var(--sea);background:#fff}
+
+/* ---------- page head ---------- */
+.pagehead{padding-block:clamp(10px,2vw,20px) clamp(20px,3vw,28px)}
+.kicker{
+  display:inline-block;
+  font-weight:600;font-size:.6875rem;letter-spacing:.6px;text-transform:uppercase;
+  color:var(--abyss);background:var(--shallow);
+  padding:.5em 1em;border-radius:var(--r-chip);
+}
+.pagehead h1{
+  margin-top:.6em;
+  font-size:clamp(1.9rem,4.6vw,2.5rem);font-weight:700;line-height:1.15;
+}
+.pagehead .updated{margin-top:.7em;color:var(--ink-soft);font-size:.875rem}
+.pagehead .intro{margin-top:.85em;color:var(--ink-soft);max-width:60ch}
+
+/* ---------- content ---------- */
+.card{
+  background:#fff;
+  border:2px solid var(--line);
+  border-radius:var(--r-tile);
+  padding:clamp(20px,3.5vw,34px);
+  margin-bottom:clamp(14px,2vw,20px);
+}
+.card h2{
+  font-size:1.0625rem;font-weight:700;line-height:1.3;
+  margin-top:2.2em;color:var(--ink);
+}
+.card > h2:first-child{margin-top:0}
+.card p{color:var(--ink-soft);margin-top:.75em;max-width:66ch}
+.card ul,.card ol{color:var(--ink-soft);margin-top:.75em;padding-left:1.4em;max-width:66ch}
+.card li{margin-top:.5em}
+.card li::marker{color:var(--sea)}
+.card strong{color:var(--ink);font-weight:600}
+
+/* Callout — sand, flat. */
+.note{
+  background:var(--sand);
+  border:2px solid #F0D79A;
+  border-radius:var(--r-tile);
+  padding:clamp(16px,2.4vw,22px);margin-top:1.3em;
+}
+.note p{margin-top:0;color:#5A4415}
+.note p + p{margin-top:.6em}
+.note a{color:#5A4415}
+
+code{
+  background:#EAF4F8;color:var(--ink);
+  padding:.15em .55em;border-radius:var(--r-chip);
+  font-size:.9em;font-weight:500;
+  font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+
+/* ---------- footer ---------- */
+footer{
+  border-top:2px solid var(--line);
+  padding-block:clamp(24px,3.5vw,36px);
+  margin-top:clamp(28px,4vw,48px);
+}
+footer .frow{display:flex;flex-wrap:wrap;align-items:center;gap:14px clamp(18px,3vw,30px)}
+footer img{width:28px;height:28px;border-radius:9px}
+footer a{color:var(--ink-soft);text-decoration:none;font-size:.875rem;display:inline-block;padding-block:.5em}
+footer a:hover{color:var(--sea);text-decoration:underline}
+footer .copy{margin-left:auto;color:var(--ink-soft);font-size:.875rem}
+
+@media (max-width:560px){
+  footer .copy{margin-left:0;width:100%}
+}
