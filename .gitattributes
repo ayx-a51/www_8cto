@@ -1,0 +1,7 @@
+# GitHub Pages reads CNAME as bytes; keep it LF-only on every platform, and
+# keep the served text files from being checked out with CRLF.
+* text=auto eol=lf
+*.png binary
+*.webp binary
+*.ico binary
+*.woff2 binary
