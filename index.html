@@ -298,13 +298,21 @@ figcaption{color:var(--ink-soft);font-size:.875rem;margin-top:.7em;text-align:ce
 /* 16 faces: 8 or 4 columns come out in whole rows. */
 @media (max-width:860px){.creatures{grid-template-columns:repeat(4,1fr)}}
 
-/* Hats, things and backdrops, a few of each. */
-.parts{display:flex;flex-wrap:wrap;gap:clamp(8px,1.6vw,18px);align-items:center;justify-content:center;
-       margin-top:1.4em;background:var(--foam);border:2px solid var(--line);
-       border-radius:var(--r-tile);padding:clamp(14px,2vw,20px)}
-.parts img{height:62px;width:auto}
-.parts .sep{width:2px;height:44px;background:var(--line);border-radius:2px;margin-inline:.3em}
-@media (max-width:560px){.parts .sep{display:none}}
+/* Hats, things and backdrops, a few of each. One box per slot, sized to
+   what is in it, so a line only ever breaks between slots and never in the
+   middle of one; a box that drops to the next line stretches across it. On
+   a phone the pictures shrink until the four hats fit one line. */
+.parts{display:flex;flex-wrap:wrap;gap:clamp(10px,1.6vw,16px);margin-top:1.4em}
+.parts .slot{
+  flex:1 1 auto;text-align:center;
+  background:var(--foam);border:2px solid var(--line);
+  border-radius:var(--r-tile);padding:clamp(12px,1.8vw,16px) clamp(12px,2vw,18px);
+}
+.parts .label{display:block;font-size:.8125rem;font-weight:600;color:var(--ink-soft);margin-bottom:.6em}
+.parts .row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:clamp(8px,1.2vw,12px)}
+.parts img{height:50px;width:auto}
+@media (max-width:560px){.parts img{height:40px}.parts .row{gap:8px}}
+@media (max-width:360px){.parts img{height:34px}}
 
 /* Privacy list. */
 .plist{list-style:none;margin-top:1.4em;display:grid;gap:.7em}
@@ -725,18 +733,31 @@ footer .copy a{font-size:inherit}
       </div>
 
       <div class="parts" aria-label="Some of the hats, things and backdrops">
-        <img src="img/avatar/hat-pirate.webp" alt="Pirate hat" loading="lazy">
-        <img src="img/avatar/hat-crown.webp" alt="Crown" loading="lazy">
-        <img src="img/avatar/hat-wizard.webp" alt="Wizard's hat" loading="lazy">
-        <img src="img/avatar/hat-party.webp" alt="Party hat" loading="lazy">
-        <span class="sep"></span>
-        <img src="img/avatar/item-lantern.webp" alt="Lantern" loading="lazy">
-        <img src="img/avatar/item-pet-fish.webp" alt="Pet fish in a bubble" loading="lazy">
-        <img src="img/avatar/item-treasure.webp" alt="Treasure chest" loading="lazy">
-        <span class="sep"></span>
-        <img src="img/avatar/backdrop-reef.webp" alt="Reef backdrop" loading="lazy">
-        <img src="img/avatar/backdrop-shipwreck.webp" alt="Shipwreck backdrop" loading="lazy">
-        <img src="img/avatar/backdrop-sunset.webp" alt="Sunset backdrop" loading="lazy">
+        <div class="slot">
+          <span class="label">Hats</span>
+          <div class="row">
+            <img src="img/avatar/hat-pirate.webp" alt="Pirate hat" loading="lazy">
+            <img src="img/avatar/hat-crown.webp" alt="Crown" loading="lazy">
+            <img src="img/avatar/hat-wizard.webp" alt="Wizard's hat" loading="lazy">
+            <img src="img/avatar/hat-party.webp" alt="Party hat" loading="lazy">
+          </div>
+        </div>
+        <div class="slot">
+          <span class="label">Things</span>
+          <div class="row">
+            <img src="img/avatar/item-lantern.webp" alt="Lantern" loading="lazy">
+            <img src="img/avatar/item-pet-fish.webp" alt="Pet fish in a bubble" loading="lazy">
+            <img src="img/avatar/item-treasure.webp" alt="Treasure chest" loading="lazy">
+          </div>
+        </div>
+        <div class="slot">
+          <span class="label">Backdrops</span>
+          <div class="row">
+            <img src="img/avatar/backdrop-reef.webp" alt="Reef backdrop" loading="lazy">
+            <img src="img/avatar/backdrop-shipwreck.webp" alt="Shipwreck backdrop" loading="lazy">
+            <img src="img/avatar/backdrop-sunset.webp" alt="Sunset backdrop" loading="lazy">
+          </div>
+        </div>
       </div>
 
       <div class="grid g3" style="margin-top:1.6em">
@@ -914,7 +935,7 @@ footer .copy a{font-size:inherit}
         <div class="plan plus">
           <span class="tag">One purchase</span>
           <h3>8ctoMath+</h3>
-          <p>Everything above, and the rest of the sea.</p>
+          <p>Everything in the free version, and the rest of the sea.</p>
           <ul>
             <li>All two hundred stickers, the twenty rare ones too</li>
             <li>All eight pages of the sticker book</li>
