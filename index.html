@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>8ctoMath — underwater maths practice for children</title>
-<meta name="description" content="Thirty sums, one race against Brainy, and a sticker for a flawless quiz. 8ctoMath brings back the sums a child gets wrong more often, and the level follows the child on its own. No ads, no tracking, works offline.">
+<title>8ctoMath — maths practice that adapts to your child</title>
+<meta name="description" content="Mental arithmetic for children aged 4 to 12, set on the seabed. Every quiz is a race of thirty questions against Brainy the squid: the level follows the child on its own, tricky calculations come back, and a good run wins stickers. No ads, no tracking, plays offline. English and German.">
 <meta name="theme-color" content="#0B3C5D">
 <meta name="color-scheme" content="dark light">
-<meta property="og:title" content="8ctoMath — underwater maths practice for children">
-<meta property="og:description" content="Thirty sums, one race against Brainy, and a sticker for a flawless quiz. The sums a child gets wrong come back more often, and the level follows the child on its own.">
+<meta property="og:title" content="8ctoMath — maths practice that adapts to your child">
+<meta property="og:description" content="Thirty questions, one race against Brainy, and stickers for a good run. The level follows the child on its own, and the calculations they find hard come back more often. No ads, no tracking, plays offline.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://8cto.net/">
 <meta property="og:image" content="https://8cto.net/img/og.png">
@@ -112,17 +112,17 @@ h3{font-size:1.0625rem;font-weight:600}
 .top nav a{color:var(--shallow);text-decoration:none;font-size:.9375rem;font-weight:500;
            display:inline-block;padding-block:.62em}
 .top nav a:hover{color:#fff;text-decoration:underline}
-/* One anchor drops out first; below that the nav goes entirely. The page is
+/* Two anchors drop out first; below that the nav goes entirely. The page is
    a single column to scroll, so nothing is actually out of reach, and the
    labels wrap mid-word if they are kept. */
-@media (max-width:720px){.top nav a.hide-s{display:none}}
+@media (max-width:760px){.top nav a.hide-s{display:none}}
 @media (max-width:560px){.top nav{display:none}}
 
 /* ---------- hero ---------- */
 .hero{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(20px,4vw,48px);align-items:center;
-      padding-block:clamp(10px,2vw,26px) clamp(34px,5vw,60px)}
-/* text-wrap:balance evens the three lines out; without it the last word
-   drops to a line of its own. */
+      padding-block:clamp(10px,2vw,26px) clamp(30px,4vw,48px)}
+/* text-wrap:balance evens the lines out; without it the last word drops to
+   a line of its own. */
 .hero h1{font-size:clamp(2rem,5.2vw,3.15rem);text-wrap:balance}
 .hero h1 .sun{color:var(--sun)}
 .hero p{color:var(--shallow);margin-top:1em;font-size:clamp(1rem,1.6vw,1.1875rem);max-width:46ch}
@@ -201,8 +201,11 @@ h3{font-size:1.0625rem;font-weight:600}
 .tile.kelp .num{background:var(--kelp-deep)}
 .tile.sun  .num{background:var(--sun-deep);color:#2A1E00}
 .tile.purple .num{background:var(--purple)}
+/* One of the app's own button pictures at the top of a tile. They are the
+   icons the child taps, so a parent recognises them on the screen. */
+.tile .ico{height:44px;width:auto;margin-bottom:.65em}
 
-/* The five kinds of sums. */
+/* The five kinds of calculation. */
 .ops{display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(10px,1.6vw,16px);margin-top:1.8em}
 @media (max-width:860px){.ops{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:460px){.ops{grid-template-columns:1fr}}
@@ -210,16 +213,11 @@ h3{font-size:1.0625rem;font-weight:600}
   background:var(--foam);border:2px solid var(--line);border-radius:var(--r-tile);
   padding:clamp(14px,2vw,20px);text-align:center;
 }
-.op .sign{font-size:1.75rem;font-weight:700;line-height:1;display:block;margin-bottom:.45em}
+.op img{height:46px;width:auto;margin:0 auto .6em}
 .op h3{font-size:.9375rem;margin-bottom:.2em}
 .op p{font-size:.8125rem;margin:0;color:var(--ink-soft)}
-.op:nth-child(1) .sign{color:var(--kelp-deep)}
-.op:nth-child(2) .sign{color:var(--coral-deep)}
-.op:nth-child(3) .sign{color:var(--sea)}
-.op:nth-child(4) .sign{color:var(--purple)}
-.op:nth-child(5) .sign{color:var(--sun-deep)}
 
-/* The two of them, before the off. */
+/* The two in the water, before the off. */
 .racers{
   display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(10px,2.4vw,26px);
   align-items:center;margin-top:1.9em;
@@ -237,7 +235,19 @@ h3{font-size:1.0625rem;font-weight:600}
 }
 @media (max-width:560px){.racers{grid-template-columns:1fr;gap:16px}}
 
-/* A framed piece of the game's own art. */
+/* And the one on the side. */
+.trainer{
+  display:flex;gap:clamp(14px,2.4vw,26px);align-items:center;margin-top:1.4em;
+  background:var(--foam);border:2px solid var(--line);
+  border-radius:var(--r-tile);padding:clamp(16px,2.4vw,22px);
+}
+.trainer img{width:118px;flex:none}
+.trainer h3{margin-bottom:.3em}
+.trainer p{font-size:.9375rem;margin:0}
+@media (max-width:560px){.trainer{flex-direction:column;text-align:center}}
+
+/* A framed screen of the game. Inside a card it sits on the card's line
+   colour; on the open sea it gets a lighter rim and a shadow. */
 figure{margin:0}
 .screen{
   border-radius:var(--r-sheet);overflow:hidden;
@@ -246,6 +256,9 @@ figure{margin:0}
 }
 .screen img{width:100%}
 figcaption{color:var(--ink-soft);font-size:.875rem;margin-top:.7em;text-align:center}
+.showcase{padding-block:0 clamp(26px,4vw,48px)}
+.showcase .screen{border-color:rgba(139,227,238,.35);box-shadow:0 24px 50px rgba(6,42,69,.5)}
+.showcase figcaption{color:var(--shallow)}
 
 /* Rewards: three props side by side. */
 .rewards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.4vw,24px);margin-top:1.9em}
@@ -255,6 +268,10 @@ figcaption{color:var(--ink-soft);font-size:.875rem;margin-top:.7em;text-align:ce
 .reward img{width:82px;margin:0 auto .8em}
 .reward h3{margin-bottom:.3em}
 .reward p{font-size:.9375rem;margin:0}
+
+/* A screen beside a tile: the shop, the parents' area. */
+.beside{display:grid;grid-template-columns:1.4fr 1fr;gap:clamp(14px,2.4vw,24px);align-items:center;margin-top:1.9em}
+@media (max-width:760px){.beside{grid-template-columns:1fr}}
 
 /* The sticker strip. */
 .stickers{
@@ -273,6 +290,22 @@ figcaption{color:var(--ink-soft);font-size:.875rem;margin-top:.7em;text-align:ce
 .pages figure{border-radius:var(--r-tile);overflow:hidden;border:2px solid var(--line);background:var(--abyss)}
 .pages .cap{padding:.55em .9em;font-size:.8125rem;font-weight:500;background:#fff;color:var(--ink-soft)}
 
+/* Faces a child can be. Every picture is boxed square so a tall seahorse
+   and a wide manta line up. */
+.creatures{display:grid;grid-template-columns:repeat(8,1fr);gap:clamp(8px,1.4vw,14px);margin-top:1.8em}
+.creatures img{width:100%;aspect-ratio:1;object-fit:contain}
+.creatures .rare{filter:drop-shadow(0 0 10px rgba(255,201,60,.7))}
+/* 16 faces: 8 or 4 columns come out in whole rows. */
+@media (max-width:860px){.creatures{grid-template-columns:repeat(4,1fr)}}
+
+/* Hats, things and backdrops, a few of each. */
+.parts{display:flex;flex-wrap:wrap;gap:clamp(8px,1.6vw,18px);align-items:center;justify-content:center;
+       margin-top:1.4em;background:var(--foam);border:2px solid var(--line);
+       border-radius:var(--r-tile);padding:clamp(14px,2vw,20px)}
+.parts img{height:62px;width:auto}
+.parts .sep{width:2px;height:44px;background:var(--line);border-radius:2px;margin-inline:.3em}
+@media (max-width:560px){.parts .sep{display:none}}
+
 /* Privacy list. */
 .plist{list-style:none;margin-top:1.4em;display:grid;gap:.7em}
 .plist li{display:flex;gap:.7em;align-items:flex-start;color:var(--ink-soft);font-size:.9375rem}
@@ -281,12 +314,30 @@ figcaption{color:var(--ink-soft);font-size:.875rem;margin-top:.7em;text-align:ce
   color:#04331F;font-weight:700;font-size:.8125rem;display:grid;place-items:center;margin-top:.15em;
 }
 
+/* Free beside 8ctoMath+. */
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,2vw,20px);margin-top:1.8em}
+@media (max-width:700px){.compare{grid-template-columns:1fr}}
+.plan{background:var(--foam);border:2px solid var(--line);border-radius:var(--r-tile);padding:clamp(18px,2.6vw,26px)}
+.plan.plus{border-color:var(--sun);background:#FFF8E1}
+.plan .tag{
+  display:inline-block;font-weight:700;font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;
+  border-radius:999px;padding:.4em 1em;background:var(--sea);color:#fff;margin-bottom:.9em;
+}
+.plan.plus .tag{background:var(--sun);color:#3F2E00}
+.plan h3{font-size:1.25rem;margin-bottom:.15em}
+.plan > p{font-size:.9375rem}
+.plan ul{list-style:none;margin-top:1em;display:grid;gap:.55em}
+.plan li{display:flex;gap:.65em;align-items:flex-start;color:var(--ink-soft);font-size:.9375rem}
+.plan li::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--sea);margin-top:.6em}
+.plan.plus li::before{background:var(--sun-deep)}
+
 /* A quiet callout inside a card. */
 .note{
   background:var(--foam);border:2px solid var(--line);
   border-radius:var(--r-tile);padding:clamp(16px,2.4vw,22px);margin-top:1.5em;
 }
 .note p{margin:0}
+.note h3{margin-bottom:.3em}
 
 /* Closing call. */
 .cta{text-align:center}
@@ -319,7 +370,9 @@ footer .copy a{font-size:inherit}
   <nav>
     <a href="#quiz">How it works</a>
     <a href="#book" class="hide-s">Stickers</a>
+    <a href="#avatars" class="hide-s">Avatars</a>
     <a href="#parents">For parents</a>
+    <a href="#plus">8ctoMath+</a>
   </nav>
 </header>
 
@@ -328,13 +381,15 @@ footer .copy a{font-size:inherit}
   <!-- ------------------------------------------------------------- hero -->
   <section class="wrap hero">
     <div>
-      <h1>Thirty sums, one race, and a <span class="sun">sticker</span> at the end.</h1>
-      <p>8ctoMath is mental arithmetic for children, set on the seabed. The
-      sums a child keeps getting wrong come back more often, and the level
-      follows the child on its own — so it stays just hard enough.</p>
+      <h1>Mental maths that <span class="sun">adapts</span> to your child.</h1>
+      <p>8ctoMath is arithmetic practice for children, set on the seabed. Every
+      quiz is a race of thirty questions against Brainy the squid. The level
+      follows your child on its own, the calculations they find hard come
+      back more often, and a good run wins stickers.</p>
       <div class="facts">
-        <span>Primary school</span>
+        <span>Ages 4 to 12+</span>
         <span>English &amp; Deutsch</span>
+        <span>Made for tablets</span>
         <span>Works offline</span>
         <span>No ads, no tracking</span>
       </div>
@@ -350,69 +405,96 @@ footer .copy a{font-size:inherit}
     </div>
   </section>
 
+  <!-- ------------------------------------------------- the game itself -->
+  <section class="wrap showcase">
+    <figure>
+      <div class="screen">
+        <img src="img/shots/shot-quiz.webp" alt="A quiz in 8ctoMath: the question 7 × 4 with five answers to pick from, the race track above it with Brainy the squid in one lane and a turtle in the other, and 8cto cheering from the side" width="1600" height="900">
+      </div>
+      <figcaption>Halfway through the times tables. The turtle is the child,
+      the squid in the top lane is Brainy, and 8cto is cheering from the
+      side.</figcaption>
+    </figure>
+  </section>
+
   <!-- ------------------------------------------------------ how a quiz goes -->
   <section class="wrap" id="quiz">
     <div class="card">
       <h2>How a quiz goes</h2>
-      <p class="lede">Thirty questions, one track along the seabed. Every right
-      answer moves 8cto a step — and Brainy the squid is swimming the same
-      track.</p>
+      <p class="lede">Thirty questions, one track along the seabed, a treasure
+      chest at the end. Every right answer is a stroke forward, and Brainy
+      the squid is swimming the same track.</p>
 
       <div class="grid g4" style="margin-top:1.9em">
         <div class="tile"><span class="num">1</span>
-          <h3>A sum comes up</h3>
-          <p>From the operations you chose, at the level this child is on.</p></div>
+          <h3>A question comes up</h3>
+          <p>From the kinds of calculation you chose, at the level this child
+          is on.</p></div>
         <div class="tile kelp"><span class="num">2</span>
           <h3>Pick the answer</h3>
-          <p>Four to choose from. The wrong ones are the mistakes children
-          actually make, not random numbers.</p></div>
+          <p>Five to choose from. The wrong ones are the mistakes children
+          really make, so the right one has to be worked out, not
+          guessed.</p></div>
         <div class="tile sun"><span class="num">3</span>
-          <h3>8cto swims on</h3>
-          <p>Right, and he takes a step. Wrong, and the answer is shown before
-          the next sum.</p></div>
+          <h3>Swim ahead</h3>
+          <p>Right, and your child's creature takes a stroke. Wrong, and the
+          answer is shown before the next question.</p></div>
         <div class="tile purple"><span class="num">4</span>
           <h3>Brainy is racing</h3>
-          <p>He is paced a tenth slower than this child's own usual time — so
+          <p>He takes a little longer than this child usually needs, so
           beating him means a better run than usual.</p></div>
       </div>
 
       <div class="racers">
         <div class="racer">
-          <img src="img/8cto-swim.webp" alt="8cto swimming" width="420" height="310" loading="lazy">
-          <h3>8cto</h3>
-          <p>Takes a step for every right answer.</p>
+          <img src="img/racer-turtle.webp" alt="A green sea turtle swimming" width="384" height="254" loading="lazy">
+          <h3>Your child</h3>
+          <p>Swims as the creature they chose for themselves. One stroke for
+          every right answer.</p>
         </div>
         <span class="versus">vs</span>
         <div class="racer">
           <img src="img/brainy-swim.webp" alt="Brainy the squid swimming" width="420" height="258" loading="lazy">
           <h3>Brainy</h3>
-          <p>Swims at a steady pace, set by this child's own last few quizzes.</p>
+          <p>Swims at a steady pace, set by this child's own last few
+          quizzes.</p>
         </div>
       </div>
 
-      <figure style="margin-top:1.6em">
-        <div class="screen">
-          <img src="img/scene-track.webp" alt="The sandy race track on the seabed, marked out with little flags" width="1400" height="788" loading="lazy">
+      <div class="trainer">
+        <img src="img/8cto-cheer.webp" alt="8cto, arms up, cheering" width="640" height="636" loading="lazy">
+        <div>
+          <h3>8cto is the trainer</h3>
+          <p>He waits beside the question, cheers a right answer, takes a
+          wrong one badly, and has a word with a child who has gone quiet.
+          Out loud, in English or German.</p>
         </div>
-        <figcaption>The track they both swim. Thirty steps, one per right answer.</figcaption>
-      </figure>
+      </div>
     </div>
   </section>
 
   <!-- ------------------------------------------------------- operations -->
   <section class="wrap">
     <div class="card">
-      <h2>Five kinds of sums</h2>
-      <p class="lede">Pick any of them for a quiz — one, or all five. Each keeps
-      its own level, so a child can be far along in adding and just starting on
-      sharing.</p>
+      <h2>Five kinds of calculation</h2>
+      <p class="lede">Pick any mix before a quiz, one kind or all five. Each
+      keeps its own level, so a child can be far along in adding and just
+      starting on sharing.</p>
       <div class="ops">
-        <div class="op"><span class="sign">+</span><h3>Adding</h3><p>up to 10, 20, 100 …</p></div>
-        <div class="op"><span class="sign">−</span><h3>Taking away</h3><p>never below zero</p></div>
-        <div class="op"><span class="sign">×</span><h3>Times tables</h3><p>tables to 10</p></div>
-        <div class="op"><span class="sign">÷</span><h3>Sharing</h3><p>always exact</p></div>
-        <div class="op"><span class="sign">××</span><h3>Big times</h3><p>up to 100 × 10</p></div>
+        <div class="op"><img src="img/icons/op_plus.webp" alt="" loading="lazy"><h3>Adding</h3><p>up to 10, 20, 100 and on</p></div>
+        <div class="op"><img src="img/icons/op_minus.webp" alt="" loading="lazy"><h3>Taking away</h3><p>never below zero</p></div>
+        <div class="op"><img src="img/icons/op_times.webp" alt="" loading="lazy"><h3>Times tables</h3><p>tables up to 12</p></div>
+        <div class="op"><img src="img/icons/op_divide.webp" alt="" loading="lazy"><h3>Sharing</h3><p>always comes out exactly</p></div>
+        <div class="op"><img src="img/icons/op_big_times.webp" alt="" loading="lazy"><h3>Big times</h3><p>such as 14 × 7</p></div>
       </div>
+
+      <figure style="margin-top:1.9em">
+        <div class="screen">
+          <img src="img/shots/shot-menu.webp" alt="The menu: two children's buttons at the top, a list of the five kinds of calculation with a tick beside each, 8cto in the open water and a Start button" width="1600" height="900" loading="lazy">
+        </div>
+        <figcaption>Where a quiz starts: who is playing, and what to
+        practise today.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -420,30 +502,49 @@ footer .copy a{font-size:inherit}
   <section class="wrap">
     <div class="card">
       <h2>The level finds the child</h2>
-      <p class="lede">Nobody has to guess which level is right. Two things move
-      on their own, quietly, while the child just plays.</p>
+      <p class="lede">Nobody has to guess which level is right, and nobody has
+      to set one. The game watches how each quiz goes and adjusts, quietly,
+      while the child just plays.</p>
 
       <div class="grid g2" style="margin-top:1.8em">
         <div class="tile">
-          <h3>Sums you get wrong come back</h3>
-          <p>Every number carries a weight. Answer it right and the weight
-          drops to four fifths; get it wrong and it rises to five quarters. So
-          7 × 8 turns up again next quiz, and the ones already known step
-          politely aside.</p>
+          <h3>Always the right difficulty</h3>
+          <p>Every kind of calculation has its own level. It steps up when
+          your child gets them right and back down when they get too
+          hard.</p>
         </div>
         <div class="tile kelp">
-          <h3>The level moves itself</h3>
-          <p>8ctoMath watches the last five answers of each operation. Five out
-          of five and the level goes up; four or fewer and it eases back down.
-          A parent can still set it by hand.</p>
+          <h3>Tricky calculations come back</h3>
+          <p>It remembers which calculations cause trouble and asks them more
+          often, and the ones your child knows well less often.</p>
         </div>
+        <div class="tile sun">
+          <h3>No lucky guesses</h3>
+          <p>The wrong answers on offer are the mistakes children really make,
+          so the right one has to be worked out.</p>
+        </div>
+        <div class="tile purple">
+          <h3>A fair race</h3>
+          <p>Brainy takes a little longer than your child usually needs for a
+          quiz, so beating him means being a bit quicker than usual. A quick
+          child and a careful one both get a race they can win.</p>
+        </div>
+      </div>
+
+      <div class="note">
+        <h3>It starts in the right place, too</h3>
+        <p>A new child gives a nickname and an age, and 8cto picks which
+        calculations the first quiz asks and how big the numbers are. Within
+        a quiz or two the levels have found the child. The age is used once
+        and never stored.</p>
       </div>
 
       <figure style="margin-top:1.9em">
         <div class="screen">
-          <img src="img/scene-menu.webp" alt="The octopus village on the seabed: coral towers, a slide and a treasure chest" width="1400" height="788" loading="lazy">
+          <img src="img/shots/shot-results.webp" alt="The results: Perfect, 30 of 30 right, eight lit starfish, faster than Brainy, two pearls earned, two sticker packs waiting to be opened, and the levels for adding and times tables gone up" width="1600" height="900" loading="lazy">
         </div>
-        <figcaption>Where a quiz starts: who is playing, and what to practise.</figcaption>
+        <figcaption>Thirty of thirty and faster than Brainy: two pearls, two
+        packs to open, and three levels that moved up.</figcaption>
       </figure>
     </div>
   </section>
@@ -452,27 +553,45 @@ footer .copy a{font-size:inherit}
   <section class="wrap">
     <div class="card">
       <h2>Worth swimming for</h2>
-      <p class="lede">Three rewards, each meaning something different. None of
-      them can be bought.</p>
+      <p class="lede">Three rewards, each meaning something different, and a
+      shop to spend one of them in. None of them can be bought with
+      money.</p>
 
       <div class="rewards">
         <div class="reward">
           <img src="img/starfish.webp" alt="" width="260" height="234" loading="lazy">
           <h3>Eight starfish</h3>
-          <p>One lights for every mark you pass — half right, then 60, 70, 80,
-          85, 90, 95, and all thirty.</p>
+          <p>One lights for every mark you pass, from half right all the way
+          up to all thirty.</p>
         </div>
         <div class="reward">
-          <img src="img/clam.webp" alt="" width="260" height="255" loading="lazy">
-          <h3>Clams</h3>
-          <p>One for a quiz with no mistakes, one for beating Brainy. Parents
-          trade them in for whatever you agreed on at home.</p>
+          <img src="img/pearl.webp" alt="" width="260" height="255" loading="lazy">
+          <h3>Pearls</h3>
+          <p>One for a quiz with no mistakes, one for beating Brainy. Spend
+          them in the sticker shop, or let a parent trade one in for a treat
+          agreed on at home.</p>
         </div>
         <div class="reward">
-          <img src="img/pack.webp" alt="" width="300" height="363" loading="lazy">
-          <h3>A sticker</h3>
-          <p>Only for a flawless quiz — every one of the thirty right. One
+          <img src="img/pack.webp" alt="" width="300" height="365" loading="lazy">
+          <h3>Stickers</h3>
+          <p>No mistakes: two stickers. One mistake: still one. About one
           sticker in twenty is a rare one.</p>
+        </div>
+      </div>
+
+      <div class="beside">
+        <figure>
+          <div class="screen">
+            <img src="img/shots/shot-shop.webp" alt="The sticker shop: rows of grey sticker outlines with a price of ten pearls under each, one shark already bought and in colour" width="1600" height="900" loading="lazy">
+          </div>
+        </figure>
+        <div class="tile">
+          <img class="ico" src="img/icons/shop.webp" alt="" loading="lazy">
+          <h3>The sticker shop</h3>
+          <p>Pearls buy exactly the sticker your child has their eye on, a
+          rare one for a good deal more. Every sticker stays a silhouette
+          until it is theirs, so there is always something to save up
+          for.</p>
         </div>
       </div>
     </div>
@@ -483,47 +602,52 @@ footer .copy a{font-size:inherit}
     <div class="card">
       <h2>Two hundred stickers, eight pages</h2>
       <p class="lede">Stickers are the collection. Drag one onto a page, turn
-      it, flip it, make it bigger — the page belongs to the child, and it stays
-      as they left it.</p>
+      it, flip it, make it bigger, take the whole page full screen. The page
+      belongs to the child, and it stays as they left it.</p>
 
       <!-- Eighteen of the two hundred. The three with .rare are from the
            rare set, and glow the way they do in the book. -->
       <div class="stickers">
-        <img src="img/stickers/clownfish.webp" alt="Clownfish sticker" width="220" height="189" loading="lazy">
-        <img src="img/stickers/seahorse.webp" alt="Seahorse sticker" width="220" height="360" loading="lazy">
-        <img src="img/stickers/manta-ray.webp" alt="Manta ray sticker" width="220" height="162" loading="lazy">
-        <img src="img/stickers/sea-turtle.webp" alt="Sea turtle sticker" width="220" height="180" loading="lazy">
+        <img src="img/stickers/clownfish.webp" alt="Clownfish sticker" width="220" height="187" loading="lazy">
+        <img src="img/stickers/seahorse.webp" alt="Seahorse sticker" width="220" height="370" loading="lazy">
+        <img src="img/stickers/manta-ray.webp" alt="Manta ray sticker" width="220" height="160" loading="lazy">
+        <img src="img/stickers/sea-turtle.webp" alt="Sea turtle sticker" width="220" height="178" loading="lazy">
         <img src="img/stickers/penguin.webp" alt="Penguin sticker" width="220" height="222" loading="lazy">
-        <img src="img/stickers/sea-otter.webp" alt="Sea otter sticker" width="220" height="201" loading="lazy">
-        <img class="rare" src="img/stickers/rainbow-whale.webp" alt="Rainbow whale, a rare sticker" width="220" height="185" loading="lazy">
-        <img src="img/stickers/crab.webp" alt="Crab sticker" width="220" height="192" loading="lazy">
-        <img src="img/stickers/nautilus.webp" alt="Nautilus sticker" width="220" height="205" loading="lazy">
-        <img src="img/stickers/starfish.webp" alt="Starfish sticker" width="220" height="210" loading="lazy">
+        <img src="img/stickers/sea-otter.webp" alt="Sea otter sticker" width="220" height="199" loading="lazy">
+        <img class="rare" src="img/stickers/rainbow-whale.webp" alt="Rainbow whale, a rare sticker" width="220" height="183" loading="lazy">
+        <img src="img/stickers/crab.webp" alt="Crab sticker" width="220" height="191" loading="lazy">
+        <img src="img/stickers/nautilus.webp" alt="Nautilus sticker" width="220" height="204" loading="lazy">
+        <img src="img/stickers/starfish.webp" alt="Starfish sticker" width="220" height="209" loading="lazy">
         <img src="img/stickers/axolotl.webp" alt="Axolotl sticker" width="220" height="201" loading="lazy">
-        <img src="img/stickers/jellyfish.webp" alt="Jellyfish sticker" width="220" height="232" loading="lazy">
-        <img class="rare" src="img/stickers/golden-turtle.webp" alt="Golden turtle, a rare sticker" width="220" height="183" loading="lazy">
-        <img src="img/stickers/cuttlefish.webp" alt="Cuttlefish sticker" width="220" height="203" loading="lazy">
-        <img src="img/stickers/treasure-chest.webp" alt="Treasure chest sticker" width="220" height="194" loading="lazy">
-        <img src="img/stickers/abacus.webp" alt="Abacus sticker" width="220" height="213" loading="lazy">
+        <img src="img/stickers/jellyfish.webp" alt="Jellyfish sticker" width="220" height="233" loading="lazy">
+        <img class="rare" src="img/stickers/golden-turtle.webp" alt="Golden turtle, a rare sticker" width="220" height="187" loading="lazy">
+        <img src="img/stickers/cuttlefish.webp" alt="Cuttlefish sticker" width="220" height="202" loading="lazy">
+        <img src="img/stickers/treasure-chest.webp" alt="Treasure chest sticker" width="220" height="192" loading="lazy">
+        <img src="img/stickers/abacus.webp" alt="Abacus sticker" width="220" height="212" loading="lazy">
         <img src="img/stickers/sailboat.webp" alt="Sailboat sticker" width="220" height="226" loading="lazy">
-        <img class="rare" src="img/stickers/baby-kraken.webp" alt="Baby kraken, a rare sticker" width="220" height="199" loading="lazy">
+        <img class="rare" src="img/stickers/baby-kraken.webp" alt="Baby kraken, a rare sticker" width="220" height="197" loading="lazy">
       </div>
 
       <div class="grid g3" style="margin-top:2em">
         <div class="tile">
+          <img class="ico" src="img/icons/collection.webp" alt="" loading="lazy">
           <h3>Five families</h3>
           <p>Fish · flippers &amp; feathers · claws, shells &amp; stars ·
-          squishy &amp; glowing · treasures &amp; things. Thirty-six in each.</p>
+          squishy &amp; glowing · treasures &amp; things. Thirty-six in each,
+          and the collection counts your doubles.</p>
         </div>
         <div class="tile sun">
+          <img class="ico" src="img/icons/group_rare.webp" alt="" loading="lazy">
           <h3>Twenty rares</h3>
-          <p>A golden turtle, a baby kraken, a rainbow whale. One earned
-          sticker in twenty comes from this set.</p>
+          <p>A golden turtle, a baby kraken, a rainbow whale, a mermaid. With
+          8ctoMath+, about one earned sticker in twenty comes from this
+          set.</p>
         </div>
         <div class="tile">
-          <h3>Doubles are fine</h3>
-          <p>Find a sticker twice and you can stick it twice. The collection
-          screen counts your copies.</p>
+          <img class="ico" src="img/icons/gift.webp" alt="" loading="lazy">
+          <h3>Sisters and brothers</h3>
+          <p>Children on the same device can send each other stickers. A
+          double, or the one the other has been hunting for.</p>
         </div>
       </div>
 
@@ -541,13 +665,147 @@ footer .copy a{font-size:inherit}
           <div class="cap">Octopus village</div>
         </figure>
         <figure>
+          <img src="img/page-kelp.webp" alt="The kelp forest page" width="1000" height="563" loading="lazy">
+          <div class="cap">Kelp forest</div>
+        </figure>
+        <figure>
+          <img src="img/page-deep.webp" alt="The deep sea page" width="1000" height="563" loading="lazy">
+          <div class="cap">Deep sea</div>
+        </figure>
+        <figure>
+          <img src="img/page-lagoon.webp" alt="The lagoon page" width="1000" height="563" loading="lazy">
+          <div class="cap">Lagoon</div>
+        </figure>
+        <figure>
+          <img src="img/page-open.webp" alt="The open sea page" width="1000" height="563" loading="lazy">
+          <div class="cap">Open sea</div>
+        </figure>
+        <figure>
           <img src="img/page-ice.webp" alt="The north pole page" width="1000" height="563" loading="lazy">
           <div class="cap">North pole</div>
         </figure>
       </div>
-      <p style="color:var(--ink-soft);margin-top:.9em;font-size:.875rem">
-        Four of the eight. The others are a kelp forest, the deep sea, a lagoon
-        and the open sea.</p>
+
+      <figure style="margin-top:1.9em">
+        <div class="screen">
+          <img src="img/shots/shot-page.webp" alt="The coral reef page with a dozen stickers stuck on it: turtles, a walrus, a shark, a blue-tang and more, among the coral towers" width="1600" height="900" loading="lazy">
+        </div>
+        <figcaption>The coral reef, filling up.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ---------------------------------------------------------- avatars -->
+  <section class="wrap" id="avatars">
+    <div class="card">
+      <h2>Be your own creature</h2>
+      <p class="lede">Every child builds a picture of their own: a sea
+      creature, a hat, a thing to hold, a backdrop and a ring colour. It sits
+      on their button on the menu, and it is who swims the race.</p>
+
+      <!-- Sixteen of the forty. The second row are portraits that a rare
+           sticker opens, and glow the way the rare stickers do. -->
+      <div class="creatures">
+        <img src="img/creatures/octo.webp" alt="8cto" loading="lazy">
+        <img src="img/creatures/clownfish.webp" alt="Clownfish" loading="lazy">
+        <img src="img/creatures/seahorse.webp" alt="Seahorse" loading="lazy">
+        <img src="img/creatures/turtle.webp" alt="Turtle" loading="lazy">
+        <img src="img/creatures/crab.webp" alt="Crab" loading="lazy">
+        <img src="img/creatures/jellyfish.webp" alt="Jellyfish" loading="lazy">
+        <img src="img/creatures/otter.webp" alt="Otter" loading="lazy">
+        <img src="img/creatures/axolotl.webp" alt="Axolotl" loading="lazy">
+        <img class="rare" src="img/creatures/golden-turtle.webp" alt="Golden turtle" loading="lazy">
+        <img class="rare" src="img/creatures/rainbow-whale.webp" alt="Rainbow whale" loading="lazy">
+        <img class="rare" src="img/creatures/baby-kraken.webp" alt="Baby kraken" loading="lazy">
+        <img class="rare" src="img/creatures/mermaid.webp" alt="Mermaid" loading="lazy">
+        <img class="rare" src="img/creatures/starry-narwhal.webp" alt="Starry narwhal" loading="lazy">
+        <img class="rare" src="img/creatures/jellyfish-king.webp" alt="Jellyfish king" loading="lazy">
+        <img class="rare" src="img/creatures/magic-conch.webp" alt="Magic conch" loading="lazy">
+        <img class="rare" src="img/creatures/sea-angel.webp" alt="Sea angel" loading="lazy">
+      </div>
+
+      <div class="parts" aria-label="Some of the hats, things and backdrops">
+        <img src="img/avatar/hat-pirate.webp" alt="Pirate hat" loading="lazy">
+        <img src="img/avatar/hat-crown.webp" alt="Crown" loading="lazy">
+        <img src="img/avatar/hat-wizard.webp" alt="Wizard's hat" loading="lazy">
+        <img src="img/avatar/hat-party.webp" alt="Party hat" loading="lazy">
+        <span class="sep"></span>
+        <img src="img/avatar/item-lantern.webp" alt="Lantern" loading="lazy">
+        <img src="img/avatar/item-pet-fish.webp" alt="Pet fish in a bubble" loading="lazy">
+        <img src="img/avatar/item-treasure.webp" alt="Treasure chest" loading="lazy">
+        <span class="sep"></span>
+        <img src="img/avatar/backdrop-reef.webp" alt="Reef backdrop" loading="lazy">
+        <img src="img/avatar/backdrop-shipwreck.webp" alt="Shipwreck backdrop" loading="lazy">
+        <img src="img/avatar/backdrop-sunset.webp" alt="Sunset backdrop" loading="lazy">
+      </div>
+
+      <div class="grid g3" style="margin-top:1.6em">
+        <div class="tile">
+          <img class="ico" src="img/icons/dice.webp" alt="" loading="lazy">
+          <h3>Twenty creatures</h3>
+          <p>A clownfish, a seahorse, an otter, a shark, a walrus, an axolotl.
+          Even 8cto. Nine hats, nine things, nine backdrops, and a "surprise
+          me" for the undecided.</p>
+        </div>
+        <div class="tile sun">
+          <img class="ico" src="img/icons/crown.webp" alt="" loading="lazy">
+          <h3>Rare stickers open rare faces</h3>
+          <p>Own the golden turtle sticker and you can be the golden turtle.
+          Twenty portraits, one for each rare sticker, and only the sticker
+          opens them.</p>
+        </div>
+        <div class="tile">
+          <img class="ico" src="img/icons/trophy.webp" alt="" loading="lazy">
+          <h3>Race as yourself</h3>
+          <p>The creature a child chose is the one in the water against
+          Brainy, stroke for stroke, while 8cto trains from the side.</p>
+        </div>
+      </div>
+
+      <figure style="margin-top:1.9em">
+        <div class="screen">
+          <img src="img/shots/shot-avatar.webp" alt="The picture builder: Mia's turtle wearing a crown and holding a lantern inside a yellow ring, and a grid of creatures to choose from" width="1600" height="900" loading="lazy">
+        </div>
+        <figcaption>Mia, as a turtle with a crown and a lantern.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ----------------------------------------------------------- voices -->
+  <section class="wrap">
+    <div class="card">
+      <h2>8cto and Brainy speak</h2>
+      <p class="lede">The characters move, and they talk. 8cto cheers a right
+      answer, takes a wrong one badly, and has a word with a child who has
+      gone quiet. Brainy crows or sulks at the finish. Real voices, in
+      English or in German.</p>
+
+      <div class="grid g4" style="margin-top:1.8em">
+        <div class="tile">
+          <img class="ico" src="img/icons/voices.webp" alt="" loading="lazy">
+          <h3>Voices</h3>
+          <p>Dozens of lines, so it takes a while before your child has heard
+          them all.</p>
+        </div>
+        <div class="tile">
+          <img class="ico" src="img/icons/music_on.webp" alt="" loading="lazy">
+          <h3>Music and sounds</h3>
+          <p>An original tune written for the game, and a music button on
+          every screen. Sound effects switch off separately.</p>
+        </div>
+        <div class="tile kelp">
+          <img class="ico" src="img/icons/calm.webp" alt="" loading="lazy">
+          <h3>Calm motion</h3>
+          <p>Fewer animations, for children who find movement distracting.
+          The characters stay; the flourishes go.</p>
+        </div>
+        <div class="tile">
+          <img class="ico" src="img/icons/pages.webp" alt="" loading="lazy">
+          <h3>Made for tablets</h3>
+          <p>Landscape, big buttons, and an on-screen letter pad for the
+          nickname instead of the system keyboard. Happy on a phone too.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -561,35 +819,50 @@ footer .copy a{font-size:inherit}
 
       <div class="grid g3" style="margin-top:1.8em">
         <div class="tile">
-          <h3>Up to ten children</h3>
-          <p>One device, one family. Each child has their own levels, clams and
-          sticker book.</p>
+          <img class="ico" src="img/icons/children.webp" alt="" loading="lazy">
+          <h3>Up to six children</h3>
+          <p>One device, one family. Each child has their own levels, pearls,
+          stickers and picture.</p>
         </div>
         <div class="tile">
-          <h3>What happened this week</h3>
-          <p>Questions answered and mistakes made over the last seven days, per
-          child. Numbers, not badges.</p>
+          <img class="ico" src="img/icons/lock.webp" alt="" loading="lazy">
+          <h3>A PIN for each child</h3>
+          <p>Four digits a child can choose, so nobody else plays as them.
+          Forgotten? You take it off.</p>
         </div>
         <div class="tile">
+          <img class="ico" src="img/icons/levels.webp" alt="" loading="lazy">
+          <h3>The last seven days</h3>
+          <p>Questions answered, mistakes made and days played, per child.
+          Numbers, not badges.</p>
+        </div>
+        <div class="tile">
+          <img class="ico" src="img/icons/pencil.webp" alt="" loading="lazy">
           <h3>Levels by hand</h3>
           <p>They move themselves, but if one is plainly too easy or too hard
           you can set it yourself.</p>
         </div>
         <div class="tile kelp">
-          <h3>Trade in a clam</h3>
-          <p>Take a clam off the pile when you hand over whatever it was worth
-          at home.</p>
+          <img class="ico" src="img/icons/star.webp" alt="" loading="lazy">
+          <h3>Trade in a pearl</h3>
+          <p>Take a pearl off the pile when you hand over whatever it was
+          worth at home.</p>
         </div>
         <div class="tile">
-          <h3>Calm motion</h3>
-          <p>Fewer animations, for children who find movement distracting.
-          Sound and music switch off separately.</p>
-        </div>
-        <div class="tile">
+          <img class="ico" src="img/icons/settings.webp" alt="" loading="lazy">
           <h3>English or Deutsch</h3>
-          <p>Follows the device, or pick one. The whole app, either language.</p>
+          <p>Follows the device, or pick one. The whole app, the voices
+          included, in either language.</p>
         </div>
       </div>
+
+      <figure style="margin-top:1.9em">
+        <div class="screen">
+          <img src="img/shots/shot-parents.webp" alt="The parents' area: tabs for Children, Settings, 8ctoMath+, Sync, About and Danger zone; Mia's card with her five levels, the last seven days and a Trade in a pearl button" width="1600" height="900" loading="lazy">
+        </div>
+        <figcaption>The parents' area: a child's levels and their last seven
+        days at a glance.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -600,11 +873,12 @@ footer .copy a{font-size:inherit}
       <p class="lede">8ctoMath is for children, so it collects nothing. It is a
       whole game with the aeroplane mode switch on.</p>
       <ul class="plist">
-        <li><span class="tick">✓</span><span>No advertising, and nothing to buy inside the app.</span></li>
-        <li><span class="tick">✓</span><span>No analytics, no tracking, no advertising identifier.</span></li>
-        <li><span class="tick">✓</span><span>Each child is one small file on the device. First name only — no birthday, no email, no photo.</span></li>
-        <li><span class="tick">✓</span><span>Backup to an account is optional, and stays off unless you turn it on.</span></li>
-        <li><span class="tick">✓</span><span>Deleting a child deletes their progress, clams and stickers everywhere.</span></li>
+        <li><span class="tick">✓</span><span>No advertising, and nothing a child can buy. The one purchase sits behind the grown-ups' gate.</span></li>
+        <li><span class="tick">✓</span><span>No analytics, no tracking, no advertising identifier, no crash reporting.</span></li>
+        <li><span class="tick">✓</span><span>No permissions asked for: no camera, microphone, location, contacts, photos or files.</span></li>
+        <li><span class="tick">✓</span><span>A nickname, not a name. No birthday, no email, no photo. The age you give is used once and never stored.</span></li>
+        <li><span class="tick">✓</span><span>Plays offline and needs no account. Sync is optional, and its backup is kept in Switzerland.</span></li>
+        <li><span class="tick">✓</span><span>Deleting a child, or everything, takes a few taps, and it is gone everywhere.</span></li>
       </ul>
       <div class="note">
         <p>The full detail is in the <a href="privacy.html">privacy policy</a>,
@@ -614,12 +888,57 @@ footer .copy a{font-size:inherit}
     </div>
   </section>
 
+  <!-- ------------------------------------------------------------ plus -->
+  <section class="wrap" id="plus">
+    <div class="card">
+      <h2>The maths is free. The extras are one purchase.</h2>
+      <p class="lede">The free version has all the maths: every kind of
+      calculation, the race and the levels that follow your child are the
+      same. 8ctoMath+ opens the rest of the collection. One purchase, no
+      subscription, for every child on the device.</p>
+
+      <div class="compare">
+        <div class="plan">
+          <span class="tag">Free</span>
+          <h3>8ctoMath</h3>
+          <p>The whole game, for up to six children.</p>
+          <ul>
+            <li>All five kinds of calculation, the race, and the levels that adapt</li>
+            <li>Starfish, pearls, the sticker shop and gifts between children</li>
+            <li>The first five stickers of each family</li>
+            <li>Two pages of the sticker book: the coral reef and the shipwreck</li>
+            <li>Five creatures, and a few hats, things and backdrops</li>
+            <li>PINs, the parents' area, English and German</li>
+          </ul>
+        </div>
+        <div class="plan plus">
+          <span class="tag">One purchase</span>
+          <h3>8ctoMath+</h3>
+          <p>Everything above, and the rest of the sea.</p>
+          <ul>
+            <li>All two hundred stickers, the twenty rare ones too</li>
+            <li>All eight pages of the sticker book</li>
+            <li>Every creature, hat, thing and backdrop</li>
+            <li>Sync: a backup of the whole family, kept in step on every device signed in to the same account</li>
+            <li>For every child on the device, and yours to keep</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="note">
+        <p>Bought through Google Play, behind the grown-ups' gate. What a
+        child has earned is never taken away: a face they built and a page
+        they have filled stay theirs.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ------------------------------------------------------------ close -->
   <section class="wrap cta">
     <img src="img/8cto-finished.webp" alt="8cto, pleased with himself" width="560" height="575" loading="lazy">
-    <h2>Come and do some sums.</h2>
-    <p>8ctoMath is finishing up for Android. Write if you would like to know
-    when it lands.</p>
+    <h2>Come and race Brainy.</h2>
+    <p>8ctoMath is in testing for Android. Write if you would like to know
+    when it lands on Google Play.</p>
     <div class="cta-row">
       <span class="soon"><span class="dot"></span> Coming to Google Play</span>
       <a class="btn btn-ghost" href="mailto:hi@8cto.net">hi@8cto.net</a>
