@@ -213,7 +213,9 @@ h3{font-size:1.0625rem;font-weight:600}
   background:var(--foam);border:2px solid var(--line);border-radius:var(--r-tile);
   padding:clamp(14px,2vw,20px);text-align:center;
 }
-.op img{height:46px;width:auto;margin:0 auto .6em}
+/* Boxed square rather than sized by height: the minus is a flat, wide glyph
+   and would come out twice the width of the others otherwise. */
+.op img{width:46px;height:46px;object-fit:contain;margin:0 auto .6em}
 .op h3{font-size:.9375rem;margin-bottom:.2em}
 .op p{font-size:.8125rem;margin:0;color:var(--ink-soft)}
 
