@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Data Deletion &middot; 8ctoMath</title>
-  <meta name="description" content="How to delete a child, an account, or everything 8ctoMath holds — in the app, or by asking us." />
+  <meta name="description" content="How to delete a child, all the data, an account, or everything 8ctoMath holds — in the app, or by asking us." />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="stylesheet" href="legal.css" />
@@ -38,17 +38,38 @@
     <p>This removes that child's nickname, levels, pearls, stickers and
     statistics. If the family uses Sync, it removes them from the account too,
     and from every other device signed in to the same account. The last
-    remaining child cannot be deleted — add another first, or remove everything
-    at once as below.</p>
+    remaining child cannot be deleted — add another first, or delete all the
+    data at once as below.</p>
 
-    <h2>Delete everything on the device</h2>
-    <p>Uninstall 8ctoMath. The app keeps its files in its own private storage,
-    which Android removes together with the app, so every child's progress on
-    that device goes with it.</p>
+    <h2>Delete all data</h2>
+    <p>In the app, open <strong>Parents &rarr; Danger zone</strong> and choose
+    <strong>Delete all data</strong>. The grown-ups' gate asks again, and the
+    app asks you to confirm.</p>
+    <p>This deletes every child on the device, with their nickname, PIN,
+    avatar, levels, pearls, stickers and statistics, and resets the device
+    settings. 8ctoMath then starts again as if it had just been installed,
+    with a new random label.</p>
+    <p>If you are signed in for Sync, the children are deleted from the
+    account as well, and so from every other device that syncs with it, and
+    this device signs out. The account itself stays, with no children in it:
+    sign in again whenever you like, or delete it as below. A purchase of
+    8ctoMath+ stays too: it belongs to your Google Play account, not to the
+    app's data.</p>
+    <div class="note">
+      <p>Signed out, only the device is wiped, because a copy kept in a Sync
+      account can only be reached by signing in to it. Sign in first if you
+      want that copy gone too.</p>
+    </div>
+
+    <h2>Uninstall</h2>
+    <p>Uninstalling 8ctoMath deletes everything on the device too. The app
+    keeps its files in its own private storage, which Android removes together
+    with the app.</p>
     <div class="note">
       <p>If the family uses Sync, uninstalling does <strong>not</strong>
       delete the copy in the account — it is meant to survive exactly this.
-      Delete the account as well if you want nothing left.</p>
+      Use <strong>Delete all data</strong> while signed in, or delete the
+      account, if you want nothing left.</p>
     </div>
   </section>
 
@@ -56,13 +77,14 @@
     <h2>Delete the Sync account</h2>
     <p>Only relevant if you signed in for Sync; without an account there is
     nothing stored off the device. In the app, open
-    <strong>Parents &rarr; Sync</strong> and choose
-    <strong>Delete account</strong>, confirming with your password or your
-    Google account.</p>
+    <strong>Parents &rarr; Danger zone</strong> and choose
+    <strong>Delete account</strong>. The grown-ups' gate asks again, and you
+    confirm with your password or your Google account.</p>
     <p>This deletes the account and everything stored with it, for good and
-    without a recovery period. The children stay on the device you are holding,
-    now on that device only; delete them separately, or uninstall, if you want
-    them gone as well.</p>
+    without a recovery period, and everything on the device you are holding,
+    exactly as <strong>Delete all data</strong> does. Other devices that were
+    signed in to the account keep the children they hold, on that device only;
+    delete them there with <strong>Delete all data</strong>, or uninstall.</p>
 
     <h2>Ask us to delete it</h2>
     <p>If you cannot reach the app — a lost or broken device, for instance —
@@ -78,11 +100,13 @@
   <section class="card">
     <h2>What is kept, and for how long</h2>
     <ul>
-      <li><strong>On the device:</strong> until you delete the child or
-      uninstall the app.</li>
-      <li><strong>In a Sync account:</strong> until you delete the child or
-      the account. A deleted child leaves a small marker so that other devices
-      on the account know to remove them too; it holds no name or progress.</li>
+      <li><strong>On the device:</strong> until you delete the child, delete
+      all data, or uninstall the app.</li>
+      <li><strong>In a Sync account:</strong> until you delete the child,
+      delete all data while signed in, or delete the account. A deleted child
+      leaves a small marker so that other devices on the account know to
+      remove them too; it holds no name or progress. Deleting the account
+      removes the markers as well.</li>
       <li><strong>Server logs:</strong> Google keeps the ordinary request logs
       of the Firebase services behind Sync, and GitHub keeps the request logs
       of this website. Both are outside our control and are described in the

@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Privacy Policy &middot; 8ctoMath</title>
-  <meta name="description" content="What 8ctoMath stores, where it stays, and how to remove it. The short version: everything stays on the device unless you switch on Sync." />
+  <meta name="description" content="What 8ctoMath stores, where it stays, and how to remove it. The short version: everything stays on the device unless you sign in to Sync." />
   <link rel="icon" href="favicon.ico" sizes="any" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="stylesheet" href="legal.css" />
@@ -27,7 +27,7 @@
     <p class="updated">Last updated: 21 September 2026</p>
     <p class="intro">8ctoMath is a maths game for children, so it is built to
     collect as little as possible: nothing leaves the device unless you
-    deliberately switch on Sync. This page sets out exactly what is stored,
+    deliberately sign in to Sync. This page sets out exactly what is stored,
     where it stays, and how to remove it.</p>
   </div>
 
@@ -36,7 +36,7 @@
     <p>8ctoMath keeps each child's progress in a small file on your own
     device. It contains no advertising, no analytics and no tracking of any
     kind, and it needs no account and no internet connection to play. If you
-    never switch on Sync, nothing a child does in 8ctoMath ever leaves the
+    never sign in to Sync, nothing a child does in 8ctoMath ever leaves the
     device.</p>
     <div class="note">
       <p>8ctoMath never asks you to allow anything: it uses none of the
@@ -118,19 +118,24 @@
     <h2>Sync</h2>
     <p>Sync keeps a family's children the same on every device they play on,
     and keeps a copy of them in an account, so they survive a lost device. It
-    is part of 8ctoMath+, it is <strong>off until you sign in and switch on
-    Back up and sync</strong> in <strong>Parents &rarr; Sync</strong>, and
-    the game is complete without it.</p>
+    is part of 8ctoMath+, it is <strong>off until you sign in</strong> in
+    <strong>Parents &rarr; Sync</strong>, and the game is complete without
+    it.</p>
     <p>Signing in uses Firebase Authentication, with an email address and
     password or with your Google account; from a Google sign-in we receive the
-    email address and display name of that account. Signing in on its own
-    moves nothing. Once you switch Sync on, the per-child data listed above,
-    including the random label of each device that earned pearls or stickers
-    for a child, is copied to Google Cloud Firestore, hosted in Zürich,
-    Switzerland, one document per child, and kept up to date from then on. It
-    is sent over an encrypted connection and stored under your account. As
-    with any Firebase-backed app, Google records the IP address and user
-    agent of these requests for sign-in security.</p>
+    email address and display name of that account. Once you are signed in,
+    the per-child data listed above, including the random label of each device
+    that earned pearls or stickers for a child, is copied to Google Cloud
+    Firestore, hosted in Zürich, Switzerland, one document per child, and kept
+    up to date from then on. It is sent over an encrypted connection and
+    stored under your account. As with any Firebase-backed app, Google records
+    the IP address and user agent of these requests for sign-in security.</p>
+    <p>When you sign in on a device that has children of its own, an empty
+    account takes those who have played. An account that already has children
+    takes them only if you choose them over its own, which are then removed
+    from the account. A child who has not played yet is never copied, and
+    children you do not choose stay on the device, where signing out brings
+    them back.</p>
     <p>Sync is used for nothing but keeping your devices in step and
     restoring them. It is never used to profile anyone, never sold, and never
     shared with a third party other than Google as the provider of the
@@ -150,20 +155,23 @@
     nothing a child can buy, and no personal data collected about a child
     beyond the nickname typed in when they are added and the PIN they may
     choose. Everything that could matter to a parent — settings, statistics,
-    levels, deleting a child, 8ctoMath+ and Sync — sits behind a gate that
-    asks for a number written out in words to be typed in digits.</p>
+    levels, deleting a child or all the data, 8ctoMath+ and Sync — sits behind
+    a gate that asks for a number written out in words to be typed in
+    digits.</p>
     <p>Because no contact details of a child are ever collected, we cannot
     and do not contact a child.</p>
 
     <h2>Data retention</h2>
-    <p>Data on the device is kept for as long as the app is installed.
-    Uninstalling 8ctoMath removes the app's private storage, and with it every
-    child's progress on that device. If you use Sync, deleting a child
-    removes them from the account as well, and from every device signed in to
-    it.</p>
+    <p>Data on the device is kept until you delete it, and no longer than the
+    app is installed: <strong>Parents &rarr; Danger zone &rarr; Delete all
+    data</strong> removes every child and the settings at once, and
+    uninstalling 8ctoMath removes the app's private storage, with every
+    child's progress on that device. If you use Sync, deleting a child removes
+    them from the account as well, and from every device signed in to it;
+    deleting all the data while signed in does the same for every child.</p>
 
     <h2>Data sharing</h2>
-    <p>We do not share personal data with anyone. If you switch on Sync, the
+    <p>We do not share personal data with anyone. If you sign in to Sync, the
     data described above is processed by Google as the operator of Firebase
     Authentication and Cloud Firestore, on our behalf and for no other purpose.
     A purchase of 8ctoMath+ is handled by Google Play under Google's own
@@ -174,12 +182,13 @@
     <h2>Your rights</h2>
     <p>Since a child's data lives on your device, you control it directly:
     <strong>Parents &rarr; Children &rarr; Delete</strong> removes a child and
-    everything belonging to them, and uninstalling the app removes all of it at
-    once. If you have used Sync, deleting a child also removes them from the
-    account, and <strong>Parents &rarr; Sync &rarr; Delete account</strong>
-    removes the account and everything stored with it for good. The
-    <a href="data_deletion.html">Data Deletion Policy</a> sets this out step by
-    step.</p>
+    everything belonging to them, and <strong>Parents &rarr; Danger zone
+    &rarr; Delete all data</strong> removes all of it at once, from the account
+    as well while you are signed in. If you have used Sync, deleting a child
+    also removes them from the account, and <strong>Parents &rarr; Danger zone
+    &rarr; Delete account</strong> removes the account and everything stored
+    with it for good. The <a href="data_deletion.html">Data Deletion
+    Policy</a> sets this out step by step.</p>
     <p>You may also write to us to ask what is stored about you, to receive a
     copy, or to have it deleted.</p>
 
