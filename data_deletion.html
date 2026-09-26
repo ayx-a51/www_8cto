@@ -24,7 +24,7 @@
   <div class="pagehead">
     <p class="kicker">Legal</p>
     <h1>Data Deletion Policy</h1>
-    <p class="updated">Last updated: 21 September 2026</p>
+    <p class="updated">Last updated: 27 September 2026</p>
     <p class="intro">8ctoMath keeps each child's progress on your own device,
     so in most cases deleting it is entirely in your hands and takes a few
     seconds. This page lists every way to do it.</p>
@@ -54,7 +54,7 @@
     this device signs out. The account itself stays, with no children in it:
     sign in again whenever you like, or delete it as below. A purchase of
     8ctoMath+ stays too: it belongs to your Google Play account, not to the
-    app's data.</p>
+    app's data, and it stays attached to the Sync account.</p>
     <div class="note">
       <p>Signed out, only the device is wiped, because a copy kept in a Sync
       account can only be reached by signing in to it. Sign in first if you
@@ -84,7 +84,9 @@
     without a recovery period, and everything on the device you are holding,
     exactly as <strong>Delete all data</strong> does. Other devices that were
     signed in to the account keep the children they hold, on that device only;
-    delete them there with <strong>Delete all data</strong>, or uninstall.</p>
+    delete them there with <strong>Delete all data</strong>, or uninstall. An
+    8ctoMath+ purchase attached to the account is let go: it stays yours on
+    Google Play, and the next account you sign in to with it can take it.</p>
 
     <h2>Ask us to delete it</h2>
     <p>If you cannot reach the app — a lost or broken device, for instance —
@@ -107,8 +109,15 @@
       leaves a small marker so that other devices on the account know to
       remove them too; it holds no name or progress. Deleting the account
       removes the markers as well.</li>
+      <li><strong>8ctoMath+ attached to an account:</strong> a one-way
+      fingerprint of the purchase, with the account, until the account is
+      deleted or Google Play reports the purchase as refunded, which our
+      server checks once a day. How often an account asked to attach a
+      purchase is counted for an hour at a time and then removed.</li>
       <li><strong>Server logs:</strong> Google keeps the ordinary request logs
-      of the Firebase services behind Sync, and GitHub keeps the request logs
+      of the Firebase services behind Sync, including the lines our purchase
+      check writes (the account and the purchase fingerprint, never the
+      purchase itself) for the usual 30 days, and GitHub keeps the request logs
       of this website. Both are outside our control and are described in the
       <a href="privacy.html">privacy policy</a>.</li>
     </ul>
