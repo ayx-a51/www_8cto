@@ -18,6 +18,24 @@
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "8ctoMath",
+  "alternateName": "8ctoMath – Maths for Kids",
+  "description": "Mental maths that adapts to your child. Race Brainy, win stickers. No ads.",
+  "operatingSystem": "ANDROID",
+  "applicationCategory": "EducationalApplication",
+  "url": "https://8cto.net/",
+  "downloadUrl": "https://play.google.com/store/apps/details?id=io.a51.octomath",
+  "sameAs": ["https://play.google.com/store/apps/details?id=io.a51.octomath"],
+  "image": "https://8cto.net/img/og.png",
+  "inLanguage": ["en", "de"],
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+  "publisher": {"@type": "Organization", "name": "A51", "url": "https://a51.io"}
+}
+</script>
 <style>
 /* 8ctoMath — 8cto.net
    Colour and type come from the app's own design system (lib/ui/theme.dart,
@@ -117,6 +135,17 @@ h3{font-size:1.0625rem;font-weight:600}
    labels wrap mid-word if they are kept. */
 @media (max-width:760px){.top nav a.hide-s{display:none}}
 @media (max-width:560px){.top nav{display:none}}
+/* The store link stays when the nav goes: it is the one thing in the header
+   a phone visitor is likely to want. */
+.top .btn-play{flex:none}
+@media (max-width:560px){.top .btn-play{margin-left:auto}}
+/* A 320 px phone fits logo, name and pill only a size down. */
+@media (max-width:380px){
+  .top,.top .home{gap:10px}
+  .top img{width:40px;height:40px;border-radius:12px}
+  .top .name{font-size:1.15rem}
+  .top .btn-play{font-size:.8125rem;padding:.5em 1em;gap:.5em}
+}
 
 /* ---------- hero ---------- */
 .hero{display:grid;grid-template-columns:1.06fr .94fr;gap:clamp(20px,4vw,48px);align-items:center;
@@ -158,14 +187,12 @@ h3{font-size:1.0625rem;font-weight:600}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:1.7em;align-items:center}
 @media (max-width:820px){.cta-row{justify-content:center}}
 
-/* The store state. While the listing is not public this is a plain badge; at
-   launch it becomes an <a class="btn btn-sun"> to the Play URL. */
-.soon{
-  display:inline-flex;align-items:center;gap:.6em;
-  background:rgba(233,251,255,.1);border:1.5px dashed rgba(139,227,238,.5);
-  color:var(--foam);border-radius:999px;padding:.72em 1.4em;font-size:.9375rem;font-weight:500;
-}
-.soon .dot{width:9px;height:9px;border-radius:50%;background:var(--sun);flex:none}
+/* The store button. The triangle is drawn in CSS, as on qizu.net and
+   zoevo.io, rather than Google's badge artwork. */
+.btn-play{display:inline-flex;align-items:center;gap:.65em}
+.btn-play .tri{width:0;height:0;border-left:.7em solid currentColor;
+  border-top:.44em solid transparent;border-bottom:.44em solid transparent}
+.btn-sm{font-size:.875rem;padding:.55em 1.2em}
 
 /* ---------- cards ---------- */
 .card{
@@ -384,6 +411,7 @@ footer .copy a{font-size:inherit}
     <a href="#parents">For parents</a>
     <a href="#plus">8ctoMath+</a>
   </nav>
+  <a class="btn btn-sun btn-sm btn-play" href="https://play.google.com/store/apps/details?id=io.a51.octomath"><span class="tri" aria-hidden="true"></span>Google&nbsp;Play</a>
 </header>
 
 <main>
@@ -404,9 +432,7 @@ footer .copy a{font-size:inherit}
         <span>No ads, no tracking</span>
       </div>
       <div class="cta-row">
-        <!-- At launch this becomes:
-             <a class="btn btn-sun" href="https://play.google.com/store/apps/details?id=io.a51.octomath">Google Play</a> -->
-        <span class="soon"><span class="dot"></span> Coming to Google Play</span>
+        <a class="btn btn-sun btn-play" href="https://play.google.com/store/apps/details?id=io.a51.octomath"><span class="tri" aria-hidden="true"></span>Get it on Google&nbsp;Play</a>
         <a class="btn btn-ghost" href="#quiz">See how it works</a>
       </div>
     </div>
@@ -960,10 +986,10 @@ footer .copy a{font-size:inherit}
   <section class="wrap cta">
     <img src="img/8cto-finished.webp" alt="8cto, pleased with himself" width="560" height="575" loading="lazy">
     <h2>Come and race Brainy.</h2>
-    <p>8ctoMath is in testing for Android. Write if you would like to know
-    when it lands on Google Play.</p>
+    <p>8ctoMath is free to download on Google Play, for Android tablets and phones.
+    Questions, ideas, a calculation that seems off? Write to us.</p>
     <div class="cta-row">
-      <span class="soon"><span class="dot"></span> Coming to Google Play</span>
+      <a class="btn btn-sun btn-play" href="https://play.google.com/store/apps/details?id=io.a51.octomath"><span class="tri" aria-hidden="true"></span>Get it on Google&nbsp;Play</a>
       <a class="btn btn-ghost" href="mailto:hi@8cto.net">hi@8cto.net</a>
     </div>
   </section>

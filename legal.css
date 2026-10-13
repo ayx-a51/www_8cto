@@ -72,6 +72,27 @@ a:focus-visible{outline:3px solid var(--sea);outline-offset:3px;border-radius:va
   border-radius:999px;padding:.55em 1.25em;white-space:nowrap;
 }
 .top .toplink:hover{border-color:var(--sea);background:#fff}
+.top .toplink + .toplink{margin-left:0}
+/* The store link, sun yellow as on the home page. */
+.top .toplink.play{
+  display:inline-flex;align-items:center;gap:.6em;
+  background:var(--sun);border-color:var(--sun);color:#3F2E00;
+}
+.top .toplink.play:hover{background:var(--sun-deep);border-color:var(--sun-deep);color:#2A1E00}
+.top .toplink.play .tri{width:0;height:0;border-left:.7em solid currentColor;
+  border-top:.44em solid transparent;border-bottom:.44em solid transparent}
+/* On a narrow phone "Home" goes; the logo still leads home. */
+@media (max-width:440px){
+  .top .toplink.home-link{display:none}
+  .top .toplink.play{margin-left:auto}
+}
+/* A 320 px phone fits logo, name and pill only a size down. */
+@media (max-width:380px){
+  .top,.top .home{gap:10px}
+  .top img{width:40px;height:40px;border-radius:12px}
+  .top .name{font-size:1.15rem}
+  .top .toplink.play{font-size:.8125rem;padding:.5em 1em;gap:.5em}
+}
 
 /* ---------- page head ---------- */
 .pagehead{padding-block:clamp(10px,2vw,20px) clamp(20px,3vw,28px)}

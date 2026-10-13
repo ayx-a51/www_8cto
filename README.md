@@ -58,9 +58,11 @@ The word "sum" means addition only. The app practises adding, taking away,
 times tables, sharing and big times, so the copy says "calculation" or
 "question" for the general case.
 
-## At launch
+## Google Play
 
-The Play listing for `io.a51.octomath` is not public yet, so the store button
-is a "Coming to Google Play" badge. Both places it appears carry a comment with
-the anchor to drop in instead — `index.html`, in the hero and in the closing
-call. The closing paragraph says the app is in testing; change that with it.
+Every store link goes to
+`https://play.google.com/store/apps/details?id=io.a51.octomath`: in
+`index.html` the header pill, the hero button, the closing call and the
+JSON-LD block in `<head>` (`downloadUrl`, `sameAs`); on both legal pages the
+header pill beside "Home". The page speaks of the app as out on Play, so keep
+any new copy in that tense.
