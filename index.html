@@ -14,7 +14,13 @@
 <meta property="og:image" content="https://8cto.net/img/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="de_CH">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://8cto.net/">
+<link rel="alternate" hreflang="en" href="https://8cto.net/">
+<link rel="alternate" hreflang="de" href="https://8cto.net/de/">
+<link rel="alternate" hreflang="x-default" href="https://8cto.net/">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" href="favicon-192.png" type="image/png" sizes="192x192">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
@@ -139,12 +145,21 @@ h3{font-size:1.0625rem;font-weight:600}
    a phone visitor is likely to want. */
 .top .btn-play{flex:none}
 @media (max-width:560px){.top .btn-play{margin-left:auto}}
+/* The other language, as two letters beside the store pill. On a 320 px
+   phone it goes; the footer has it too. */
+.top .lang{flex:none;color:var(--shallow);text-decoration:none;font-weight:600;
+  font-size:.875rem;letter-spacing:.04em;padding:.45em .8em;
+  border:1.5px solid rgba(139,227,238,.45);border-radius:999px}
+.top .lang:hover{color:#fff;border-color:var(--shallow)}
+@media (max-width:560px){.top .lang{margin-left:auto}.top .lang ~ .btn-play{margin-left:0}}
 /* A 320 px phone fits logo, name and pill only a size down. */
 @media (max-width:380px){
   .top,.top .home{gap:10px}
   .top img{width:40px;height:40px;border-radius:12px}
   .top .name{font-size:1.15rem}
   .top .btn-play{font-size:.8125rem;padding:.5em 1em;gap:.5em}
+  .top .lang{display:none}
+  .top .lang ~ .btn-play{margin-left:auto}
 }
 
 /* ---------- hero ---------- */
@@ -411,6 +426,7 @@ footer .copy a{font-size:inherit}
     <a href="#parents">For parents</a>
     <a href="#plus">8ctoMath+</a>
   </nav>
+  <a class="lang" href="de/" hreflang="de" lang="de" title="Deutsch" aria-label="Deutsch">DE</a>
   <a class="btn btn-sun btn-sm btn-play" href="https://play.google.com/store/apps/details?id=io.a51.octomath"><span class="tri" aria-hidden="true"></span>Google&nbsp;Play</a>
 </header>
 
@@ -919,7 +935,15 @@ footer .copy a{font-size:inherit}
 
       <figure style="margin-top:1.9em">
         <div class="screen">
-          <img src="img/shots/shot-parents.webp" alt="The parents' area: tabs for Children, Settings, 8ctoMath+, Sync, About and Danger zone; Mia's card with her five levels, the last seven days and a Trade in a pearl button" width="1600" height="900" loading="lazy">
+          <img src="img/shots/shot-progress.webp" alt="Mia's progress page: a calendar of five weeks with a starfish on every day she practised, seven days in a row, and this week's 35 minutes, 10 quizzes, 300 questions and 93% right" width="1600" height="900" loading="lazy">
+        </div>
+        <figcaption>Mia's own progress page: five weeks of starfish, and
+        seven days in a row.</figcaption>
+      </figure>
+
+      <figure style="margin-top:1.9em">
+        <div class="screen">
+          <img src="img/shots/shot-parents.webp" alt="The parents' area: tabs for Children, Settings, 8ctoMath+, Sync, About and Danger zone; Mia's card with her five levels, the last seven days, and Progress and Trade in a pearl buttons" width="1600" height="900" loading="lazy">
         </div>
         <figcaption>The parents' area: a child's levels and their last seven
         days at a glance.</figcaption>
@@ -1016,6 +1040,7 @@ footer .copy a{font-size:inherit}
     <a href="privacy.html">Privacy</a>
     <a href="data_deletion.html">Data deletion</a>
     <a href="mailto:hi@8cto.net">hi@8cto.net</a>
+    <a href="de/" hreflang="de" lang="de">Deutsch</a>
     <span class="copy">&copy; <a href="https://a51.io">A51</a></span>
   </div>
 </footer>

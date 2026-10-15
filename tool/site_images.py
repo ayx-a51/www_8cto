@@ -2,9 +2,10 @@
 
     python tool/site_images.py
 
-Needs Pillow. APP is the 8ctoMath repository, SHOTS the folder holding the
-tablet screenshots that the app's tool/store_shots_test.dart renders (Play's
-upload copies, 2560 x 1440 PNG). Every picture is written as webp at the size
+Needs Pillow. APP is the 8ctoMath repository, SHOTS the folder its
+tool/store_shots_test.dart renders the store screenshots into, one folder
+per language (the tablet ones, 2560 x 1440 PNG, are used here); run that
+first. Every picture is written as webp at the size
 the page lays it out at, or twice that for the small ones, so nothing is
 served larger than it is shown. Files the pages stop referencing are not
 removed here; grep the HTML for img/ paths and delete the strays.
@@ -14,7 +15,7 @@ import os
 from PIL import Image
 
 APP = r'C:\Users\r\CODING\8ctoMath2'
-SHOTS = r'C:\Users\r\Downloads\8cto\play\tablet'
+SHOTS = os.path.join(APP, 'build', 'store_shots')
 SITE = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'img')
 ART = os.path.join(APP, 'assets', 'art')
 
@@ -95,11 +96,14 @@ ICONS = [
 for name in ICONS:
     export(art(f'icon_{name}'), f'icons/{name}.webp', height=128)
 
-# The screens: the Play screenshots, at 1600 px.
+# The screens: the Play screenshots, at 1600 px, the English ones for the
+# English pages and the German ones in shots/de/ for de/.
 SCREENS = {
-    '01_quiz': 'quiz', '02_results': 'results', '03_sticker_page': 'page',
-    '04_menu': 'menu', '06_avatar': 'avatar', '07_shop': 'shop',
-    '08_parents': 'parents',
+    '2_quiz': 'quiz', '3_results': 'results', '5_page': 'page',
+    '1_menu': 'menu', '6_avatar': 'avatar', '7_shop': 'shop',
+    '8_parents': 'parents', '9_progress': 'progress',
 }
-for src, dst in SCREENS.items():
-    export(os.path.join(SHOTS, f'{src}.png'), f'shots/shot-{dst}.webp', width=1600, q=80)
+for lang, folder in [('en', 'shots'), ('de', 'shots/de')]:
+    for src, dst in SCREENS.items():
+        export(os.path.join(SHOTS, lang, f'tablet_{src}.png'),
+               f'{folder}/shot-{dst}.webp', width=1600, q=80)

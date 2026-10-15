@@ -81,10 +81,14 @@ a:focus-visible{outline:3px solid var(--sea);outline-offset:3px;border-radius:va
 .top .toplink.play:hover{background:var(--sun-deep);border-color:var(--sun-deep);color:#2A1E00}
 .top .toplink.play .tri{width:0;height:0;border-left:.7em solid currentColor;
   border-top:.44em solid transparent;border-bottom:.44em solid transparent}
+/* The other language, as two letters. */
+.top .toplink.lang{padding-inline:.9em;letter-spacing:.04em}
 /* On a narrow phone "Home" goes; the logo still leads home. */
 @media (max-width:440px){
   .top .toplink.home-link{display:none}
   .top .toplink.play{margin-left:auto}
+  .top .toplink.lang{margin-left:auto}
+  .top .toplink.lang + .toplink.play{margin-left:0}
 }
 /* A 320 px phone fits logo, name and pill only a size down. */
 @media (max-width:380px){
@@ -92,6 +96,8 @@ a:focus-visible{outline:3px solid var(--sea);outline-offset:3px;border-radius:va
   .top img{width:40px;height:40px;border-radius:12px}
   .top .name{font-size:1.15rem}
   .top .toplink.play{font-size:.8125rem;padding:.5em 1em;gap:.5em}
+  .top .toplink.lang{display:none}
+  .top .toplink.lang + .toplink.play{margin-left:auto}
 }
 
 /* ---------- page head ---------- */
@@ -106,6 +112,10 @@ a:focus-visible{outline:3px solid var(--sea);outline-offset:3px;border-radius:va
   margin-top:.6em;
   font-size:clamp(1.9rem,4.6vw,2.5rem);font-weight:700;line-height:1.15;
 }
+/* German runs to words like "Datenschutzerklärung", wider than a 320 px
+   phone: headings hyphenate in the page's language, and break if they
+   still cannot fit. */
+h1,h2{-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
 .pagehead .updated{margin-top:.7em;color:var(--ink-soft);font-size:.875rem}
 .pagehead .intro{margin-top:.85em;color:var(--ink-soft);max-width:60ch}
 
