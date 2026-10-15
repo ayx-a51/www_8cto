@@ -5,12 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Not found &middot; 8ctoMath</title>
 <meta name="robots" content="noindex">
-<link rel="icon" href="favicon.ico" sizes="any">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- GitHub Pages serves this one file for every missing path, under /de/,
+     /es/ and /fr/ too, so every path here starts at the root. -->
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
 @font-face{
   font-family:'Fredoka';
-  src:url('fonts/Fredoka.woff2') format('woff2-variations');
+  src:url('/fonts/Fredoka.woff2') format('woff2-variations');
   font-weight:300 700;font-style:normal;font-display:swap;
 }
 :root{--abyss:#062A45;--deep:#0B3C5D;--sea:#1673A6;--shallow:#8BE3EE;--foam:#E9FBFF;--sun:#FFC93C}
@@ -37,10 +39,51 @@ a.btn:hover{background:#E59A12;color:#2A1E00}
 </head>
 <body>
 <main>
-  <img src="img/8cto-thinking.webp" alt="8cto looking puzzled" width="520" height="535">
+  <img src="/img/8cto-thinking.webp" alt="8cto looking puzzled" width="520" height="535">
   <h1>Nothing here but water.</h1>
   <p>That page has drifted off. 8cto is not sure where it went either.</p>
   <a class="btn" href="/">Back to the surface</a>
 </main>
+<script>
+/* A missing page under /de/, /es/ or /fr/ gets this page in that language,
+   with the way back to that language's home page. English is the markup
+   above, for everywhere else and for a browser without script. */
+(function () {
+  var t = {
+    de: {
+      title: 'Nicht gefunden',
+      h1: 'Hier ist nichts als Wasser.',
+      p: 'Diese Seite ist davongetrieben. 8cto weiss auch nicht, wohin.',
+      btn: 'Zurück an die Oberfläche',
+      alt: '8cto schaut ratlos'
+    },
+    es: {
+      title: 'Página no encontrada',
+      h1: 'Aquí solo hay agua.',
+      p: 'Esta página se ha ido a la deriva. 8cto tampoco sabe adónde.',
+      btn: 'Volver a la superficie',
+      alt: '8cto, desconcertado'
+    },
+    fr: {
+      title: 'Page introuvable',
+      h1: 'Ici, il n’y a que de l’eau.',
+      p: 'Cette page est partie à la dérive. 8cto ne sait pas non plus où elle est allée.',
+      btn: 'Remonter à la surface',
+      alt: '8cto, perplexe'
+    }
+  };
+  var lang = location.pathname.split('/')[1].toLowerCase();
+  var s = t.hasOwnProperty(lang) && t[lang];
+  if (!s) return;
+  document.documentElement.lang = lang;
+  document.title = s.title + ' · 8ctoMath';
+  document.querySelector('h1').textContent = s.h1;
+  document.querySelector('main p').textContent = s.p;
+  document.querySelector('main img').alt = s.alt;
+  var a = document.querySelector('a.btn');
+  a.textContent = s.btn;
+  a.href = '/' + lang + '/';
+})();
+</script>
 </body>
 </html>

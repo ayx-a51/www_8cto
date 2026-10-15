@@ -11,6 +11,8 @@
   <link rel="canonical" href="https://8cto.net/de/datenschutz.html" />
   <link rel="alternate" hreflang="en" href="https://8cto.net/privacy.html" />
   <link rel="alternate" hreflang="de" href="https://8cto.net/de/datenschutz.html" />
+  <link rel="alternate" hreflang="es" href="https://8cto.net/es/privacidad.html" />
+  <link rel="alternate" hreflang="fr" href="https://8cto.net/fr/confidentialite.html" />
   <link rel="alternate" hreflang="x-default" href="https://8cto.net/privacy.html" />
 </head>
 <body>
@@ -21,7 +23,15 @@
     <span class="name">8ctoMath</span>
   </a>
   <a class="toplink home-link" href="./">Start</a>
-  <a class="toplink lang" href="../privacy.html" hreflang="en" lang="en" title="English" aria-label="English">EN</a>
+  <details class="toplink lang">
+    <summary aria-label="Sprache: Deutsch">DE<span class="chev" aria-hidden="true"></span></summary>
+    <ul>
+      <li><a href="../privacy.html" hreflang="en" lang="en">English</a></li>
+      <li><span aria-current="page" lang="de">Deutsch</span></li>
+      <li><a href="../es/privacidad.html" hreflang="es" lang="es">Español</a></li>
+      <li><a href="../fr/confidentialite.html" hreflang="fr" lang="fr">Français</a></li>
+    </ul>
+  </details>
   <a class="toplink play" href="https://play.google.com/store/apps/details?id=io.a51.octomath"><span class="tri" aria-hidden="true"></span>Google&nbsp;Play</a>
 </header>
 
@@ -240,9 +250,35 @@
     <a href="datenloeschung.html">Daten löschen</a>
     <a href="mailto:hi@8cto.net">hi@8cto.net</a>
     <a href="../privacy.html" hreflang="en" lang="en">English</a>
+    <a href="../es/privacidad.html" hreflang="es" lang="es">Español</a>
+    <a href="../fr/confidentialite.html" hreflang="fr" lang="fr">Français</a>
     <span class="copy">&copy; <a href="https://a51.io">A51</a></span>
   </div>
 </footer>
+
+<script>
+/* The language menu is a <details>: it opens, and its links work, with no
+   script. This only closes it on a click elsewhere, on Escape, once a
+   language is picked, and when the page comes back with the back button. */
+(function () {
+  var menu = document.querySelector('details.lang');
+  if (!menu) return;
+  function close() { menu.open = false; }
+  document.addEventListener('click', function (e) {
+    if (menu.open && !menu.contains(e.target)) close();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape' || !menu.open) return;
+    var inside = menu.contains(document.activeElement);
+    close();
+    if (inside) menu.querySelector('summary').focus();
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.closest('a')) close();
+  });
+  window.addEventListener('pageshow', close);
+})();
+</script>
 
 </body>
 </html>

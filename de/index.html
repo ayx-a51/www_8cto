@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>8ctoMath — Kopfrechnen, das sich deinem Kind anpasst</title>
-<meta name="description" content="Kopfrechnen für Kinder von 4 bis 12, auf dem Meeresgrund. Jedes Quiz ist ein Rennen über dreissig Aufgaben gegen den Tintenfisch Brainy: Die Stufe folgt dem Kind von selbst, knifflige Rechnungen kommen wieder, und ein guter Lauf bringt Sticker. Keine Werbung, kein Tracking, läuft offline. Auf Deutsch und Englisch.">
+<meta name="description" content="Kopfrechnen für Kinder von 4 bis 12, auf dem Meeresgrund. Jedes Quiz ist ein Rennen über dreissig Aufgaben gegen den Tintenfisch Brainy: Die Stufe folgt dem Kind von selbst, knifflige Rechnungen kommen wieder, und ein guter Lauf bringt Sticker. Keine Werbung, kein Tracking, läuft offline. Auf Deutsch, Englisch, Spanisch und Französisch.">
 <meta name="theme-color" content="#0B3C5D">
 <meta name="color-scheme" content="dark light">
 <meta property="og:title" content="8ctoMath — Kopfrechnen, das sich deinem Kind anpasst">
@@ -16,10 +16,14 @@
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="de_CH">
 <meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="es_ES">
+<meta property="og:locale:alternate" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://8cto.net/de/">
 <link rel="alternate" hreflang="en" href="https://8cto.net/">
 <link rel="alternate" hreflang="de" href="https://8cto.net/de/">
+<link rel="alternate" hreflang="es" href="https://8cto.net/es/">
+<link rel="alternate" hreflang="fr" href="https://8cto.net/fr/">
 <link rel="alternate" hreflang="x-default" href="https://8cto.net/">
 <link rel="icon" href="../favicon.ico" sizes="any">
 <link rel="icon" href="../favicon-192.png" type="image/png" sizes="192x192">
@@ -37,7 +41,7 @@
   "downloadUrl": "https://play.google.com/store/apps/details?id=io.a51.octomath",
   "sameAs": ["https://play.google.com/store/apps/details?id=io.a51.octomath"],
   "image": "https://8cto.net/img/og-de.png",
-  "inLanguage": ["de", "en"],
+  "inLanguage": ["de", "en", "es", "fr"],
   "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
   "publisher": {"@type": "Organization", "name": "A51", "url": "https://a51.io"}
 }
@@ -120,7 +124,7 @@ a:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:va
 .wrap{max-width:1060px;margin-inline:auto;padding-inline:clamp(20px,5vw,40px)}
 section{padding-block:clamp(38px,6vw,68px)}
 
-h1,h2,h3{font-weight:700;line-height:1.15;letter-spacing:-.01em}
+h1,h2,h3{font-weight:700;line-height:1.15;letter-spacing:-.01em;-webkit-hyphens:auto;hyphens:auto;overflow-wrap:break-word}
 h2{font-size:clamp(1.6rem,4vw,2.3rem)}
 h3{font-size:1.0625rem;font-weight:600}
 .lede{color:var(--shallow);max-width:60ch;margin-top:.9em;font-size:1.0625rem}
@@ -133,25 +137,53 @@ h3{font-size:1.0625rem;font-weight:600}
 .top nav{margin-left:auto;display:flex;align-items:center;gap:clamp(12px,2.4vw,26px)}
 /* padding-block keeps the tap target comfortable on a phone, where these
    are the only navigation there is. */
-.top nav a{color:var(--shallow);text-decoration:none;font-size:.9375rem;font-weight:500;
+.top nav a{color:var(--shallow);text-decoration:none;font-size:.9375rem;font-weight:500;white-space:nowrap;
            display:inline-block;padding-block:.62em}
 .top nav a:hover{color:#fff;text-decoration:underline}
 /* Two anchors drop out first; below that the nav goes entirely. The page is
    a single column to scroll, so nothing is actually out of reach, and the
-   labels wrap mid-word if they are kept. */
-@media (max-width:760px){.top nav a.hide-s{display:none}}
-@media (max-width:560px){.top nav{display:none}}
+   labels would wrap if they were kept (Spanish and French run long). */
+@media (max-width:960px){.top nav a.hide-s{display:none}}
+@media (max-width:720px){.top nav{display:none}}
 /* The store link stays when the nav goes: it is the one thing in the header
    a phone visitor is likely to want. */
 .top .btn-play{flex:none}
-@media (max-width:560px){.top .btn-play{margin-left:auto}}
-/* The other language, as two letters beside the store pill. On a 320 px
-   phone it goes; the footer has it too. */
-.top .lang{flex:none;color:var(--shallow);text-decoration:none;font-weight:600;
-  font-size:.875rem;letter-spacing:.04em;padding:.45em .8em;
-  border:1.5px solid rgba(139,227,238,.45);border-radius:999px}
-.top .lang:hover{color:#fff;border-color:var(--shallow)}
-@media (max-width:560px){.top .lang{margin-left:auto}.top .lang ~ .btn-play{margin-left:0}}
+@media (max-width:720px){.top .btn-play{margin-left:auto}}
+/* The language switcher: this page's language as two letters beside the
+   store pill, opening a short list of all four. It is a <details>, so it
+   opens and its links work with no script at all; the few lines at the end
+   of the page only close it on a click elsewhere or Escape. The page you
+   are on is in the list, ticked, but not a link. On a 320 px phone the
+   switcher goes; the footer has every language too. */
+.top .lang{flex:none;position:relative}
+.top .lang summary{
+  display:flex;align-items:center;gap:.45em;cursor:pointer;list-style:none;
+  color:var(--shallow);font-weight:600;font-size:.875rem;letter-spacing:.04em;
+  padding:.45em .8em;border:1.5px solid rgba(139,227,238,.45);border-radius:999px;
+  -webkit-user-select:none;user-select:none;
+}
+.top .lang summary::-webkit-details-marker{display:none}
+.top .lang summary:hover,.top .lang[open] summary{color:#fff;border-color:var(--shallow)}
+.top .lang summary:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.top .lang .chev{width:.4em;height:.4em;border:solid currentColor;border-width:0 2px 2px 0;
+  transform:translateY(-.1em) rotate(45deg)}
+.top .lang[open] .chev{transform:translateY(.12em) rotate(-135deg)}
+.top .lang ul{
+  position:absolute;z-index:20;top:calc(100% + 8px);right:0;
+  min-width:9.5em;max-width:calc(100vw - 32px);list-style:none;padding:6px;
+  background:#fff;border-radius:18px;box-shadow:0 16px 36px rgba(6,42,69,.5);
+}
+.top .lang li > *{
+  display:flex;align-items:center;justify-content:space-between;gap:.8em;
+  padding:.45em .85em;border-radius:var(--r-chip);white-space:nowrap;
+  color:var(--ink);text-decoration:none;font-size:.9375rem;font-weight:500;
+}
+.top .lang li a:hover{background:var(--foam);color:var(--sea)}
+.top .lang li a:focus-visible{outline:3px solid var(--sea);outline-offset:-3px}
+.top .lang li [aria-current]{background:var(--foam);color:var(--sea);font-weight:600}
+.top .lang li [aria-current]::after{content:"";flex:none;width:.32em;height:.62em;
+  border:solid currentColor;border-width:0 2px 2px 0;transform:translateY(-.1em) rotate(45deg)}
+@media (max-width:720px){.top .lang{margin-left:auto}.top .lang ~ .btn-play{margin-left:0}}
 /* A 320 px phone fits logo, name and pill only a size down. */
 @media (max-width:380px){
   .top,.top .home{gap:10px}
@@ -428,7 +460,15 @@ footer .copy a{font-size:inherit}
     <a href="#parents">Für Eltern</a>
     <a href="#plus">8ctoMath+</a>
   </nav>
-  <a class="lang" href="../" hreflang="en" lang="en" title="English" aria-label="English">EN</a>
+  <details class="lang">
+    <summary aria-label="Sprache: Deutsch">DE<span class="chev" aria-hidden="true"></span></summary>
+    <ul>
+      <li><a href="../" hreflang="en" lang="en">English</a></li>
+      <li><span aria-current="page" lang="de">Deutsch</span></li>
+      <li><a href="../es/" hreflang="es" lang="es">Español</a></li>
+      <li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li>
+    </ul>
+  </details>
   <a class="btn btn-sun btn-sm btn-play" href="https://play.google.com/store/apps/details?id=io.a51.octomath"><span class="tri" aria-hidden="true"></span>Google&nbsp;Play</a>
 </header>
 
@@ -444,7 +484,7 @@ footer .copy a{font-size:inherit}
       kommen öfter wieder, und ein guter Lauf bringt Sticker.</p>
       <div class="facts">
         <span>4 bis 12+ Jahre</span>
-        <span>Deutsch &amp; English</span>
+        <span>Deutsch · English · Español · Français</span>
         <span>Gemacht für Tablets</span>
         <span>Läuft offline</span>
         <span>Keine Werbung, kein Tracking</span>
@@ -521,7 +561,8 @@ footer .copy a{font-size:inherit}
           <h3>8cto ist der Trainer</h3>
           <p>Er wartet neben der Aufgabe, jubelt bei einer richtigen Antwort,
           leidet bei einer falschen mit und meldet sich, wenn ein Kind still
-          geworden ist. Laut, auf Deutsch oder Englisch.</p>
+          geworden ist. Laut, auf Deutsch, Englisch, Spanisch oder
+          Französisch.</p>
         </div>
       </div>
     </div>
@@ -850,7 +891,7 @@ footer .copy a{font-size:inherit}
       <p class="lede">Die Figuren bewegen sich, und sie reden. 8cto jubelt bei
       einer richtigen Antwort, leidet bei einer falschen mit und meldet sich,
       wenn ein Kind still geworden ist. Brainy jubelt oder schmollt im Ziel.
-      Echte Stimmen, auf Deutsch oder Englisch.</p>
+      Echte Stimmen, auf Deutsch, Englisch, Spanisch oder Französisch.</p>
 
       <div class="grid g4" style="margin-top:1.8em">
         <div class="tile">
@@ -936,9 +977,9 @@ footer .copy a{font-size:inherit}
         </div>
         <div class="tile">
           <img class="ico" src="../img/icons/settings.webp" alt="" loading="lazy">
-          <h3>Deutsch oder English</h3>
-          <p>Folgt dem Gerät, oder du wählst. Die ganze App, auch die Stimmen,
-          in beiden Sprachen.</p>
+          <h3>Vier Sprachen</h3>
+          <p>Deutsch, English, Español oder Français. Folgt dem Gerät, oder
+          du wählst. Die ganze App, auch die Stimmen, spricht alle vier.</p>
         </div>
       </div>
 
@@ -1004,7 +1045,7 @@ footer .copy a{font-size:inherit}
             <li>Zwei Seiten im Stickerbuch: das Korallenriff und das Schiffswrack</li>
             <li>Fünf Tiere und ein paar Hüte, Dinge und Hintergründe</li>
             <li>Der Fortschritt jedes Kindes über die letzten sieben Tage</li>
-            <li>PINs, die tägliche Erinnerung, der Elternbereich, Deutsch und Englisch</li>
+            <li>PINs, die tägliche Erinnerung, der Elternbereich, alle vier Sprachen</li>
           </ul>
         </div>
         <div class="plan plus">
@@ -1051,9 +1092,35 @@ footer .copy a{font-size:inherit}
     <a href="datenloeschung.html">Daten löschen</a>
     <a href="mailto:hi@8cto.net">hi@8cto.net</a>
     <a href="../" hreflang="en" lang="en">English</a>
+    <a href="../es/" hreflang="es" lang="es">Español</a>
+    <a href="../fr/" hreflang="fr" lang="fr">Français</a>
     <span class="copy">&copy; <a href="https://a51.io">A51</a></span>
   </div>
 </footer>
+
+<script>
+/* The language menu is a <details>: it opens, and its links work, with no
+   script. This only closes it on a click elsewhere, on Escape, once a
+   language is picked, and when the page comes back with the back button. */
+(function () {
+  var menu = document.querySelector('details.lang');
+  if (!menu) return;
+  function close() { menu.open = false; }
+  document.addEventListener('click', function (e) {
+    if (menu.open && !menu.contains(e.target)) close();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key !== 'Escape' || !menu.open) return;
+    var inside = menu.contains(document.activeElement);
+    close();
+    if (inside) menu.querySelector('summary').focus();
+  });
+  menu.addEventListener('click', function (e) {
+    if (e.target.closest('a')) close();
+  });
+  window.addEventListener('pageshow', close);
+})();
+</script>
 
 </body>
 </html>
