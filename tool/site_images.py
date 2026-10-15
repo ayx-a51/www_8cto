@@ -89,8 +89,8 @@ for slot, names in PARTS.items():
 ICONS = [
     'op_plus', 'op_minus', 'op_times', 'op_divide', 'op_big_times', 'shop',
     'collection', 'group_rare', 'gift', 'dice', 'crown', 'trophy', 'voices',
-    'music_on', 'calm', 'pages', 'children', 'lock', 'levels', 'pencil',
-    'star', 'settings',
+    'music_on', 'calm', 'pages', 'children', 'lock', 'pencil',
+    'star', 'settings', 'progress', 'reminder', 'sync',
 ]
 for name in ICONS:
     export(art(f'icon_{name}'), f'icons/{name}.webp', height=128)
