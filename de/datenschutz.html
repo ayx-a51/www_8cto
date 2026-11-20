@@ -40,7 +40,7 @@
   <div class="pagehead">
     <p class="kicker">Rechtliches</p>
     <h1>Datenschutzerklärung</h1>
-    <p class="updated">Zuletzt aktualisiert: 15. Oktober 2026</p>
+    <p class="updated">Zuletzt aktualisiert: 20. November 2026</p>
     <p class="intro">8ctoMath ist ein Rechenspiel für Kinder und deshalb so
     gebaut, dass es so wenig wie möglich sammelt: Nichts verlässt das Gerät,
     ausser du meldest dich bewusst für den Abgleich an. Diese Seite sagt
@@ -57,8 +57,8 @@
     <div class="note">
       <p>8ctoMath nutzt weder Kamera noch Mikrofon, Standort, Kontakte, Fotos
       oder Dateien. Das Internet braucht es nur für den freiwilligen Abgleich,
-      für den Kauf von 8ctoMath+ über Google Play und um diese Seite aus dem
-      Elternbereich zu öffnen.</p>
+      für den Kauf von 8ctoMath+ über Google Play oder, auf dem iPhone, über
+      den App Store und um diese Seite aus dem Elternbereich zu öffnen.</p>
     </div>
   </section>
 
@@ -97,10 +97,18 @@
     <p>Geräte-Einstellungen — Ton, Musik, Stimmen, ruhige Bewegungen, Sprache
     und die Uhrzeit der täglichen Erinnerung — werden getrennt im selben
     privaten Bereich gespeichert, zusammen damit, ob die Spielregeln schon
-    gezeigt wurden, ob 8ctoMath+ gekauft wurde, zu welchem Konto der Abgleich
+    gezeigt wurden, ob 8ctoMath+ gekauft wurde (auf dem iPhone mit dem vom
+    App Store signierten Beleg dieses Kaufs), zu welchem Konto der Abgleich
     gehört, solange du angemeldet bist, und einer zufälligen Kennung, die sich
     die App bei der Installation selbst ausdenkt, damit Perlen und Sticker,
     die auf zwei Geräten verdient werden, richtig zusammengezählt werden.</p>
+    <p>Ist die Sicherung des Geräts selbst eingeschaltet (das iCloud-Backup
+    oder ein Backup auf einen Computer beim iPhone, die Sicherung von Google
+    bei Android), sichert das System den privaten Speicher jeder App zusammen
+    mit dem übrigen Gerät, auch den von 8ctoMath, damit ein neues oder
+    zurückgesetztes Gerät ihn wiederbekommt. Diese Sicherung macht das System
+    unter deinem Apple Account oder deinem Google-Konto, nicht 8ctoMath, und
+    wir haben keinen Zugriff darauf.</p>
     <p>Abgesehen vom Alter oben fragen wir nichts über ein Kind, und wir
     speichern weder Geburtstag noch Alter, E-Mail-Adresse, Foto, Kontakt,
     Standort oder sonst etwas über es. Keine Kennung deines Geräts oder deines
@@ -118,8 +126,9 @@
       <li>Kein soziales Netzwerk, kein Chat und kein Kontakt zu irgendwem
       ausser den Kindern auf demselben Gerät.</li>
       <li>Keine Links aus dem Spiel hinaus, ausser zu dieser Seite, einem
-      E-Mail-Link an uns und der Seite von Google Play zum Einlösen eines
-      Codes, alle im Elternbereich hinter dem Tor für Erwachsene.</li>
+      E-Mail-Link an uns und, bei Android, der Seite von Google Play zum
+      Einlösen eines Codes oder, auf dem iPhone, den Lizenzbedingungen von
+      Apple, alle im Elternbereich hinter dem Tor für Erwachsene.</li>
     </ul>
   </section>
 
@@ -127,7 +136,8 @@
     <h2>8ctoMath+</h2>
     <p>8ctoMath+ ist ein einmaliger Kauf, kein Abo, der jeden Sticker, jede
     Stickerseite und jeden Teil des Bildes öffnet und den Abgleich enthält. Er
-    wird über Google Play gekauft, hinter dem Tor für Erwachsene.</p>
+    wird bei Android über Google Play und auf dem iPhone über den App Store
+    gekauft, hinter dem Tor für Erwachsene.</p>
     <p>Google Play wickelt die Zahlung nach seinen eigenen Bedingungen ab: Wir
     sehen nie einen Namen, eine Adresse oder Zahlungsdaten. Die App fragt
     Google Play, ob 8ctoMath+ gekauft wurde, und behält diese Antwort auf dem
@@ -140,6 +150,19 @@
     ausserdem jeweils für eine Stunde, wie oft ein Konto angefragt hat, um
     Missbrauch zu verhindern. Codes für Freunde und Familie werden auf der
     eigenen Seite von Google Play eingelöst.</p>
+    <p>Auf dem iPhone wickelt der App Store von Apple die Zahlung nach seinen
+    eigenen Bedingungen ab, und auch hier sehen wir nie einen Namen, eine
+    Adresse oder Zahlungsdaten. Die App fragt den App Store, ob 8ctoMath+
+    gekauft wurde, und behält diese Antwort auf dem Gerät, zusammen mit dem
+    Beleg des Kaufs, den Apple signiert (er nennt den Kauf, sein Datum, seinen
+    Preis und das Land des Stores und enthält weder einen Namen noch
+    Zahlungsdaten). Bist du für den Abgleich angemeldet, schickt die App
+    diesen signierten Beleg an unseren Server in Zürich, der die Signatur von
+    Apple prüft, bevor 8ctoMath+ deinem Konto zugeordnet wird. Gespeichert
+    wird nur ein Einweg-Fingerabdruck der Nummer des Kaufs, bei deinem Konto,
+    und die Anfragen werden auf dieselbe Weise gezählt. Apple meldet unserem
+    Server, wenn ein Kauf erstattet wird. Ein Code wird im eigenen Fenster von
+    Apple in der App eingelöst.</p>
 
     <h2>Abgleich</h2>
     <p>Der Abgleich hält die Kinder einer Familie auf jedem Gerät, auf dem sie
@@ -149,8 +172,11 @@
     <strong>Eltern &rarr; Abgleich</strong>, und das Spiel ist auch ohne ihn
     vollständig.</p>
     <p>Die Anmeldung läuft über Firebase Authentication, mit E-Mail-Adresse und
-    Passwort oder mit deinem Google-Konto; bei einer Anmeldung mit Google
-    erhalten wir die E-Mail-Adresse und den Anzeigenamen dieses Kontos. Sobald
+    Passwort, mit deinem Google-Konto oder mit «Mit Apple anmelden»; bei
+    einer Anmeldung mit Google erhalten wir die E-Mail-Adresse und den
+    Anzeigenamen dieses Kontos, von Apple nur eine E-Mail-Adresse, und zwar
+    eine von Apple erfundene Weiterleitungsadresse, wenn du deine eigene
+    verbirgst. Sobald
     du angemeldet bist, werden die oben aufgeführten Daten jedes Kindes,
     einschliesslich der zufälligen Kennung jedes Geräts, auf dem Perlen oder
     Sticker für ein Kind verdient wurden, nach Google Cloud Firestore kopiert,
@@ -159,10 +185,11 @@
     Konto gespeichert. Wie bei jeder App, die Firebase nutzt, protokolliert
     Google die IP-Adresse und den User-Agent dieser Anfragen für die
     Sicherheit der Anmeldung. Um das Konto vor allem zu schützen, was sich
-    nur als 8ctoMath ausgibt, bittet die App ausserdem Google Play zu
-    bestätigen, dass sie die echte App ist (Firebase App Check mit Play
-    Integrity); Google bearbeitet diese Anfrage nach seinen eigenen
-    Bedingungen, und wir erhalten nur sein Ja oder Nein.</p>
+    nur als 8ctoMath ausgibt, bittet die App ausserdem bei Android Google
+    Play (Firebase App Check mit Play Integrity) und auf dem iPhone Apple
+    (App Attest) zu bestätigen, dass sie die echte App ist; Google und Apple
+    bearbeiten diese Anfrage nach ihren eigenen Bedingungen, und wir erhalten
+    nur das Ja oder Nein.</p>
     <p>Meldest du dich auf einem Gerät an, das eigene Kinder hat, übernimmt ein
     leeres Konto sie alle. Ein Konto, das schon Kinder hat, übernimmt die
     dieses Geräts nur, wenn du sie statt seiner eigenen wählst, die dann aus
@@ -204,17 +231,20 @@
     den Abgleich, entfernt das Löschen eines Kindes es auch aus dem Konto und
     von jedem Gerät, das damit angemeldet ist; alle Daten zu löschen, während
     du angemeldet bist, tut dasselbe für jedes Kind. Der Fingerabdruck eines
-    Kaufs bleibt beim Konto, bis das Konto gelöscht wird oder Google Play den
-    Kauf als erstattet meldet, was unser Server einmal am Tag prüft.</p>
+    Kaufs bleibt beim Konto, bis das Konto gelöscht wird oder der Store den
+    Kauf als erstattet meldet: Bei Google Play fragt unser Server einmal am
+    Tag nach, Apple meldet es ihm.</p>
 
     <h2>Weitergabe von Daten</h2>
     <p>Wir geben keine persönlichen Daten an irgendwen weiter. Meldest du dich
     für den Abgleich an, werden die oben beschriebenen Daten von Google als
     Betreiber von Firebase Authentication, Cloud Firestore und Cloud Functions
     in unserem Auftrag und zu keinem anderen Zweck verarbeitet. Ein Kauf von
-    8ctoMath+ wird von Google Play nach den eigenen Bedingungen von Google
-    abgewickelt; unser Server fragt Google Play nur, ob ein Kauf gültig
-    ist.</p>
+    8ctoMath+ wird von Google Play oder vom App Store von Apple nach deren
+    eigenen Bedingungen abgewickelt; unser Server fragt Google Play nur, ob
+    ein Kauf gültig ist, und Apple gar nichts: Er prüft die Signatur auf dem
+    Beleg, den die App schickt. Die Anmeldung mit Apple und die mit Google
+    laufen bei Apple und Google nach deren eigenen Bedingungen.</p>
   </section>
 
   <section class="card">
